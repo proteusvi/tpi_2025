@@ -1,0 +1,199 @@
+#!/bin/bash
+#    .--.
+#   |o_o |
+#   |:_/ |
+#  //   \ \
+# (|     | )
+#/'\_   _/`\
+#\___)=(___/
+#+-------------------------------------------------------+
+#| Script permettant d'aller à son projet directement    |
+#| soit en tapant goProjet nom soit goProjet qui affiche |
+#| le menu il suffit ensuite de copié collé le projet    |
+#| et de taper sur la touche Return pour aller dans le   |
+#| répertoire du projet                                  |
+#| @author DBX <didier.beux@etat.ge.ch>                  |
+#| @since ven. 13 nov. 2020 13:27:14                     |
+#+-------------------------------------------------------+
+env -i
+unalias -a
+
+path_selected="$(pwd)"
+
+# Indexes et petit nom de projet à atteinde.
+declare -a indexes=( \
+    "alias" \
+)
+
+# Paths associés au projets déployés sur son poste
+declare -A projets=( \
+  ['alias']="${HOME}/workspace/dir_project_name" \
+)
+
+res="$1"
+
+#+----------------------------+
+#| Retourne vrais si la clé a |
+#| trouvée dans la liste des  |
+#| paths.                     |
+#+----------------------------+
+function isFound(){
+   cpt=0
+   target="$1"
+   for i in [${indexes[@]}]; do
+      if [[ "${indexes[$cpt]}" == "$target" ]]; then
+         return 0
+      fi
+      ((cpt++))
+   done
+   return 1
+}
+
+#+------------------------------+
+#| Ajoute les espaces manquants |
+#| dans la case d'affichage du  |
+#| message selon la longueur du |
+#| texte passé en paramètre.    |
+#+------------------------------+
+function addSpacesAfterText(){
+	text=$1
+	spaces=$2
+	length=${#text}
+	nbrOfSpaces=$((${spaces} - $length))
+	cpt=0
+	spaces='';
+	while [[ ${cpt} < ${nbrOfSpaces} ]]; do
+		spaces=${spaces}' ';
+		(( cpt++ ))
+	done
+	echo -en "${text}${spaces}"
+}
+
+#+-------------------------------------+
+#| Demande si on veut se positionner   |
+#| dans le répertoire docker ?         |
+#| - Si Oui retourne 0.                |
+#| - Sinon retourne 1.                 |
+#+-------------------------------------+
+function ask4Docker(){
+   res="vide"
+   while [ "${res}" != "[Oo]" ] || \
+         [ "${res}" != "[Nn]" ] || \
+         [ "${res}" != "[Oo][Uu][Ii]" ] || \
+         [ "${res}" != "[Nn][Oo][Nn]" ]; do
+      echo -en "Entrez dans docker O[ui] ou N[on]: "
+      read res
+      if [ "${res}" == "O" ]; then
+         return 0
+      elif [ "${res}" == "N" ]; then
+         return 1
+      fi
+   done
+}
+
+#+-------------------------------------+
+#| Chargement de l'environnement      |
+#+-------------------------------------+
+function readEnvironment(){
+   project_path="$1"
+   #Chargement des aliases du projet
+   dos2unix docker/scripts/*.* >/dev/null 2>&1
+   if [[ -f .aliases ]]; then
+      dos2unix .aliases
+      . .aliases
+      isAliasesLoaded=true
+   elif [[ -d docker ]]; then
+      if [[ -f docker/.aliases ]]; then
+         dos2unix docker/.aliases
+         . docker/.aliases
+         isAliasesLoaded=true
+      else
+         dos2unix docker/scripts/.aliases
+         . docker/scripts/.aliases
+         isAliasesLoaded=true
+      fi
+   elif [[ -d scripts ]]; then
+      dos2unix scripts/.aliases
+      . scripts/.aliases
+      isAliasesLoaded=true
+   fi
+   if [[ ${isAliasesLoaded} == true ]]; then
+      echo "+-----------------------------+"
+      echo "| Les aliases ont été chargés |"
+      echo "+-----------------------------+"
+   fi
+	 echo "+--------------------------------------+"
+   echo "| En tant qu'administrateur, lancer la |"
+   echo "| commande : $ chown $(addSpacesAfterText ${USER}' ./ -R' 17) |"
+   echo "| pour vous assurer d'avoir les droits |"
+   echo "| en écriture sur le projet.           |"
+   echo "|                                      |"
+   echo "| Pour s'assurer que les fichiers de   |"
+   echo "| configuration Drupal ne sont pas     |"
+   echo "| exécutables, effectuer depuis la ra- |"
+   echo "| cine du site, la commande suivante:  |"
+   echo "| find ./config -type f -perm 755      |"
+   echo "| Si le résultat est vide s'est Ok     |"
+   echo "| sinon nettoyer en ajoutant à la com- |"
+   echo "| mande: -exec chmod a-x {} \;         |"
+   echo "+--------------------------------------+"
+}
+
+#+-------------------------------------+
+#| Se positionne dans le répertoire du |
+#| projet et charge les éventuels al   |
+#| iases à prendre en compte si le fi- |
+#| chier existe. Un message est affi-  |
+#| ché à la fin du traitement.         |
+#+-------------------------------------+
+function go(){
+	 areAliasesLoaded=false
+   path="$1"
+   user=${USER}
+   if ask4Docker; then
+      path_selected="${path}/docker"
+   else
+      path_selected="${path}"
+   fi
+   echo "${path_selected}"
+   cd "${path_selected}"
+   readEnvironment "${path_selected}"
+}
+
+#+----------------------+
+#| traitement principal |
+#+----------------------+
+
+if [[ "$res" == "" ]]; then
+  res=''
+  while [[ "$res" == "" ]]; do
+     echo "Quel projet voulez-vous atteindre ?"
+     cpt=0
+     for i in [${indexes[@]}]; do
+        echo ${indexes[$cpt]}
+        ((cpt++))
+     done
+     echo -en "Votre réponse : "
+     read res
+     if isFound ${res}; then
+        go ${projets[${res}]}
+     else
+	res=""
+        echo "Choix invalide veuillez recommencer"
+     fi
+   done
+else
+   if isFound ${res}; then
+      go ${projets[${res}]}
+   else
+      echo "Choix invalide veuillez recommencer"
+   fi
+fi
+
+#+--------------------------------------+
+#| Charge l'environnement selon le fi - |
+#| chier .bashrc s'il existe.           |
+#+--------------------------------------+
+if [[ -f ./.bashrc ]]; then
+   . ./.bashrc
+fi
