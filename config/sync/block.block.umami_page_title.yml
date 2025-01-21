@@ -1,0 +1,27 @@
+uuid: 223013c0-311b-4042-ae98-62c32f792792
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - umami
+_core:
+  default_config_hash: iAhownPneFU_HfOgPVITz339xTxjd_yAzbcBOUBd4Sk
+id: umami_page_title
+theme: umami
+region: page_title
+weight: -7
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Titre de la page'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: '<front>'

@@ -45,17 +45,6 @@
  * ];
  * @endcode
  */
-//  $databases['default']['default']= [
-//     'database' => 'tpi2025',
-//     'username' => 'drupal',
-//     'password' => 'drupal',
-//     'host' => 'mariadb',
-//     'port' => '3306',
-//     'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-//     'driver' => 'mysql',
-//     'prefix' => '',
-//     'collation' => 'utf8mb4_general_ci',
-// ];
 $databases['default']['default'] = [
     'database' => 'tpi2025',
     'username' => 'drupal',
@@ -63,8 +52,10 @@ $databases['default']['default'] = [
     'prefix' => '',
     'host' => 'mariadb',
     'port' => '3306',
-    'isolation_level' => 'READ COMMITTED',
     'driver' => 'mysql',
+    'isolation_level' => 'READ COMMITTED',
+    'prefix' => '',
+    'collation' => 'utf8mb4_general_ci',
     'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
     'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 ];

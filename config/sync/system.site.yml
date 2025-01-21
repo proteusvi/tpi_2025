@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
+langcode: fr
+uuid: 69b5aca5-af91-40e5-985a-67f6a02a5dd7
+name: 'Umami Food Magazine'
+mail: dbeux@infomaniak.ch
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: fr
+mail_notification: null
