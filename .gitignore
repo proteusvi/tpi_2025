@@ -53,6 +53,7 @@
 # Ignore vendor dependencies and scripts
 /vendor
 /docker
+/scripts
 /composer.phar
 /composer
 /robo.phar
