@@ -45,18 +45,63 @@
  * ];
  * @endcode
  */
- $databases['default']['default']= [
+//  $databases['default']['default']= [
+//     'database' => 'tpi2025',
+//     'username' => 'drupal',
+//     'password' => 'drupal',
+//     'host' => 'mariadb',
+//     'port' => '3306',
+//     'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+//     'driver' => 'mysql',
+//     'prefix' => '',
+//     'collation' => 'utf8mb4_general_ci',
+// ];
+$databases['default']['default'] = [
     'database' => 'tpi2025',
     'username' => 'drupal',
     'password' => 'drupal',
+    'prefix' => '',
     'host' => 'mariadb',
     'port' => '3306',
-    'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+    'isolation_level' => 'READ COMMITTED',
     'driver' => 'mysql',
-    'prefix' => '',
-    'collation' => 'utf8mb4_general_ci',
+    'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
+    'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 ];
+  
+/**
+ * Location of the site configuration files.
+ *
+ * The $settings['config_sync_directory'] specifies the location of file system
+ * directory used for syncing configuration data. On install, the directory is
+ * created. This is used for configuration imports.
+ *
+ * The default location for this directory is inside a randomly-named
+ * directory in the public files path. The setting below allows you to set
+ * its location.
+ */
+# $settings['config_sync_directory'] = '/directory/outside/webroot';
+$settings['config_sync_directory'] = '../config/sync';
 
+/**
+ * Salt for one-time login links, cancel links, form tokens, etc.
+ *
+ * This variable will be set to a random value by the installer. All one-time
+ * login links will be invalidated if the value is changed. Note that if your
+ * site is deployed on a cluster of web servers, you must ensure that this
+ * variable has the same value on each server.
+ *
+ * For enhanced security, you may set this variable to the contents of a file
+ * outside your document root, and vary the value across environments (like
+ * production and development); you should also ensure that this file is not
+ * stored with backups of your database.
+ *
+ * Example:
+ * @code
+ *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
+ * @endcode
+ */
+$settings['hash_salt'] = 'n5b9p0aSJ67oUN8vTcoxnDXlHjYoYDAlCGm9N62vE66RziVdXJiiZOSPW98SeovBsHs9ru9Vaw';
 
 /**
  * Assertions.
