@@ -20,6 +20,9 @@ services:
     build: dockerfile/php
     container_name: "${PROJECT_NAME}_php"
     environment:
+      http_proxy: "http://192.168.127.254:3128/"
+      https_proxy: "http://192.168.127.254:3128/"
+      no_proxy: "localhost,127.0.0.1,*.docker.localhost,nextjs.docker.localhost,apache,192.168.0.0/16" 
       # By default xdebug extension also disabled.
       PHP_EXTENSIONS_DISABLE: xhprof,spx
       PHP_MAIL_MIXED_LF_AND_CRLF: 'On'
@@ -51,10 +54,10 @@ services:
 #      SIMPLETEST_BASE_URL: "http://nginx"
 #      SIMPLETEST_DB: "${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}#tests_"
 #      MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", {"browserName":"chrome","goog:chromeOptions":{"args":["--disable-gpu","--headless"]}}, "http://chrome:9515"]'
-    extra_hosts:
-    - "host.docker.internal:host-gateway"
+#    extra_hosts:
+#    - "host.docker.internal:host-gateway"
     volumes:
-    - ../:/var/www/html
+    - ../:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
 #    - drupal:/var/www/html
 ## For XHProf and Xdebug profiler traces
@@ -68,7 +71,7 @@ services:
       CRONTAB: "0 * * * * drush -r /var/www/html/web cron"
     command: sudo -E crond -f -d 0
     volumes:
-    - ../:/var/www/html
+    - ../:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
 #    - drupal:/var/www/html
 
@@ -122,7 +125,7 @@ services:
       APACHE_VHOST_PRESET: php
       APACHE_DOCUMENT_ROOT: /var/www/html/web
     volumes:
-    - ../:/var/www/html
+    - ../:/var/www/html:cached
 ## Alternative for macOS users: Mutagen https://wodby.com/docs/stacks/drupal/local#docker-for-mac
 #    - drupal:/var/www/html
 

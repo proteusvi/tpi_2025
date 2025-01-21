@@ -4,14 +4,14 @@ services:
     environment:
       PHP_FPM_CLEAR_ENV: "no"
     volumes:
-    - codebase:/var/www/html
+    - ../:/var/www/html
 
   crond:
     image: wodby/drupal:$DRUPAL_TAG
     environment:
       PHP_FPM_CLEAR_ENV: "no"
     volumes:
-    - codebase:/var/www/html
+    - ../:/var/www/html
 
 #  nginx:
 #    volumes:
