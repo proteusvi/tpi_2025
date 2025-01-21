@@ -1,5 +1,0 @@
---2025-01-20 12:20:00--  https://update.code.visualstudio.com/commit:cd4ee3b1c348a13bafd8f9ad8060705f6d4b9cba/server-linux-x64/stable
-Connecting to 192.168.127.254:3128... connected.
-ERROR: cannot verify update.code.visualstudio.com's certificate, issued by ‘emailAddress=tick-rt@etat.ge.ch,CN=proxyadm.ge-reseau.ch,OU=IT,O=Etat de Geneve,L=Geneve,ST=Geneve,C=CH’:
-  Unable to locally verify the issuer's authority.
-To connect to update.code.visualstudio.com insecurely, use `--no-check-certificate'.
