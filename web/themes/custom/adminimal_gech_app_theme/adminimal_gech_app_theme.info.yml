@@ -1,0 +1,23 @@
+name: Adminimal_GECH_APP
+type: theme
+description: 'Drupal gech administration - sous-thème de Adminimal.'
+core_version_requirement: ^9 || ^10
+base theme: adminimal_theme
+ckeditor5-stylesheets: false
+
+libraries:
+  - adminimal_gech_app_theme/global-styling
+
+regions:
+  header: 'Header'
+  pre_content: 'Pre-content'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  sidebar_first: 'First sidebar'
+regions_hidden:
+  - sidebar_first
+

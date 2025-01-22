@@ -9,5 +9,5 @@ fetch:
   timeout: 30
 notification:
   emails:
-    - dbeux@infomaniak.ch
+    - tibo.robert-nicoud@etat.ge.ch
   threshold: all

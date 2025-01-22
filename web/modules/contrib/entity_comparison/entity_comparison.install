@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Contains entity_comparison.install.
+ */
+
+use Drupal\entity_comparison\Entity\EntityComparison;
+
+/**
+ * Add entity comparison dependencies.
+ */
+function entity_comparison_update_9001() {
+  $entity_comparisons = EntityComparison::loadMultiple();
+
+  foreach ($entity_comparisons as $entity_comparison) {
+    $entity_comparison->save();
+  }
+}

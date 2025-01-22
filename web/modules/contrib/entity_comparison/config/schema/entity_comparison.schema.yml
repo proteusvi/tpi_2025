@@ -1,0 +1,65 @@
+block.settings.entity_comparison_block:*:
+  type: block_settings
+  label: 'Entity comparison'
+  mapping:
+    link_text:
+      type: text
+      label: 'Link text'
+
+entity_comparison.entity_comparison.*:
+  type: config_entity
+  label: 'Entity comparison config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+    add_link_text:
+      type: label
+      label: 'Text for the link "add comparison"'
+    remove_link_text:
+      type: label
+      label: 'Text for the link to "remove from the comparison"'
+    limit:
+      type: integer
+      label: 'The limit on the number of compared items ("0" - no limit)'
+    entity_type:
+      type: string
+      label: 'Entity type'
+    bundle_type:
+      type: string
+      label: 'Bundle type'
+
+field.formatter.settings.entity_comparison_link:
+  type: mapping
+  label: 'Comparison link settings'
+  mapping:
+    enitity_comparison:
+      type: string
+      label: Entity comparison
+
+field.storage_settings.entity_comparison_link:
+  type: mapping
+  label: 'Comparison link settings'
+  mapping:
+    max_length:
+      type: integer
+      label: 'Maximum length'
+    case_sensitive:
+      type: boolean
+      label: 'Case sensitive'
+    is_ascii:
+      type: boolean
+      label: 'Contains US ASCII characters only'
+
+field.value.entity_comparison_link:
+  type: mapping
+  label: 'Default value'
+  mapping:
+    value:
+      type: label
+      label: 'Value'

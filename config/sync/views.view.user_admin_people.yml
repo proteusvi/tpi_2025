@@ -1,4 +1,4 @@
-uuid: b02fd2de-b399-42b2-8699-408620ecdbea
+uuid: a029306d-3207-4409-96ba-47708cb34966
 langcode: fr
 status: true
 dependencies:
@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: FFLg74mnzRE10lgg5fspPCZWLnIEcvCnJMlNzj8OEtw
 id: user_admin_people
-label: Personnes
+label: People
 module: user
 description: 'Find and manage people interacting with your site.'
 tag: default
@@ -20,7 +20,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Personnes
+      title: People
       fields:
         user_bulk_form:
           id: user_bulk_form
@@ -913,7 +913,7 @@ display:
         context: ''
       tab_options:
         type: normal
-        title: Personnes
+        title: People
         description: 'Manage user accounts, roles, and permissions.'
         weight: 0
         menu_name: admin

@@ -1,0 +1,17 @@
+  /**
+  add colors for diff action on revision to print.
+   */
+  @media print { 
+  td.diff-deletedline{
+    background-color: #fdd !important;
+  }
+  td.diff-addedline{
+    background-color: #dfd !important;
+  }
+  td.diff-addedline span.diffchange {
+    background-color: #77f177 !important;
+  }
+  td.diff-deletedline span.diffchange {
+    background-color: #faa !important;
+  }
+}

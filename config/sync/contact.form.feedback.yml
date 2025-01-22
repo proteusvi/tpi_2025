@@ -1,4 +1,4 @@
-uuid: 305bf06f-4eab-45d9-a955-8d92317045bb
+uuid: 652c6800-1592-4aa5-8b67-3ec7ba04513f
 langcode: fr
 status: true
 dependencies: {  }
@@ -7,7 +7,7 @@ _core:
 id: feedback
 label: 'Website feedback'
 recipients:
-  - dbeux@infomaniak.ch
+  - tibo.robert-nicoud@etat.ge.ch
 reply: ''
 weight: 0
 message: 'Your message has been sent.'
