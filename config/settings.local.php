@@ -227,3 +227,23 @@ $settings['skip_permissions_hardening'] = TRUE;
  * the language or field module.
  */
 # $settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
+
+/**
+ * Optimized assets path:
+ *
+ * A local file system path where optimized assets will be stored. This directory
+ * must exist and be writable by Drupal. This directory must be relative to
+ * the Drupal installation directory and be accessible over the web.
+ */
+ # $settings['file_assets_path'] = 'sites/default/files';
+
+
+/**
+ * Public file path:
+ *
+ * A local file system path where public files will be stored. This directory
+ * must exist and be writable by Drupal. This directory must be relative to
+ * the Drupal installation directory and be accessible over the web.
+ */
+ # $settings['file_public_path'] = 'sites/default/files';
+
