@@ -1,9 +1,9 @@
 _core:
   default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
 langcode: fr
-uuid: 2c65aaf7-65dd-42aa-ba75-90fe4d1f7b28
+uuid: 69b5aca5-af91-40e5-985a-67f6a02a5dd7
 name: 'Umami Food Magazine'
-mail: tibo.robert-nicoud@etat.ge.ch
+mail: dbeux@infomaniak.ch
 slogan: ''
 page:
   403: ''
