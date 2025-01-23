@@ -16,9 +16,12 @@
     ],
     "require": {
         "composer/installers": "^2.0",
+        "drupal/adminimal_theme": "^1.7",
         "drupal/core-composer-scaffold": "^10.4",
         "drupal/core-project-message": "^10.4",
-        "drupal/core-recommended": "^10.4"
+        "drupal/core-recommended": "^10.4",
+        "drupal/entity_comparison": "^4.0",
+        "drupal/seven": "^1.0"
     },
     "conflict": {
         "drupal/drupal": "*"
