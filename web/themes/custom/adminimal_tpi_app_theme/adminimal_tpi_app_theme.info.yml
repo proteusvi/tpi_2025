@@ -1,0 +1,12 @@
+name: adminimal tpi app theme
+type: theme
+description: Thème Pour le TPI
+core_version_requirement: ^10
+base theme: adminimal_theme
+libraries:
+  - adminimal_tpi_app_theme/global
+regions:
+  header: 'En-tête'
+  content: 'Contenu principal'
+  sidebar: 'Barre latérale'
+  footer: 'Pied de page'
