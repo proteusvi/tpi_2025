@@ -1,0 +1,41 @@
+<?php
+/**
+ * @file
+ * Contains tpi_entity_comparison.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function tpi_entity_comparison_theme($existing, $type, $theme, $path) {
+    $theme = [];
+  
+    $theme['tpi_entity_comparison_list'] = [
+      'template' => 'block--tpi-entity-comparison--list',
+      'variables' => [
+        'title' => NULL,
+        'list_mmt' => NULL,
+        'list_stages' => NULL,
+      ],
+    ];
+  
+    $theme['tpi_entity_comparison_action_btn'] = [
+      'template' => 'btn-add-to-list',
+      'variables' => [
+        'itemId' => NULL,
+        'pathCompareList' => NULL,
+        'compareListId' => NULL,
+        'isDisabled' => NULL,
+      ],
+      'file' => 'tpi_entity_comparison.theme.inc',
+    ];
+  
+    $theme['tpi_entity_comparison_list_counter'] = [
+      'template' => 'popup-comparison-list-counter',
+      'variables' => [
+        'itemsCount' => NULL,
+      ],
+    ];
+  
+    return $theme;
+  }

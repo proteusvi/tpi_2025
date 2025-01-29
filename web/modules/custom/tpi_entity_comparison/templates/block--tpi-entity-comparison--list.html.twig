@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a comparison list for MMT and Stages.
+ *
+ * Available variables:
+ * - title
+ * - list_mmt
+ * - list_stages
+ * lists are strucutred like this :
+ * - title
+ * - list
+ * list contain the comparison list name configured into the module entity_comparison.
+ *
+ * - attributes: array of HTML attributes populated by modules, intended to
+
+ *   be added to the main container tag of this template.
+
+ *
+
+ * @ingroup themeable
+
+ */
+
+#}
+<div id="lazy-list-comparison">
+  {% include '@tpi_entity_comparison/list-to-compare.html.twig' with {
+    'title': list_mmt.title,
+    'list': list_mmt.list,
+    'compareListId': 'list-mmt-to-compare',
+    'pathCompareList': 'list_mmt_to_compare'
+  } %}
+  <hr>
+  {% include '@tpi_entity_comparison/list-to-compare.html.twig' with {
+    'title': list_stages.title,
+    'list': list_stages.list,
+    'compareListId': 'list-stages-to-compare',
+    'pathCompareList': 'list_stages_to_compare'
+  } %}
+

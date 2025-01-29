@@ -1,0 +1,55 @@
+<div class="title-wrapper">
+  <h6>{{ title }}</h6>
+  <a
+    href="{{ url('tpi_entity_comparison.comparison_display', {'entity_comparison_id': compareListId}) }}"
+    class="btn btn-sm btn-dark {% if list is empty  %}disabled{% endif %}">{{ 'Compare'|t}}
+  </a>
+</div>
+
+{% if list is not empty %}
+<ul>
+{% for key, item in list %}
+  {% if item is iterable %}
+  {% set href = url('tpi_entity_comparison.action', {'entity_comparison_id': pathCompareList, 'entity_id': item.id}) %}
+
+  {% set dataEntityComparison = compareListId ~ '-' ~ item.id %}
+  <li class="d-flex justify-content-between">
+    <div class="block-text-list-comparison grow-1">
+      <div class="title">
+         {{ item.title }}
+      </div>
+      <div class="prestataire-name">
+        <span title="{{ item.prestataire }}" aria-label="{{ item.prestataire }}">
+          {% if item.prestataire|length > 35 %}
+            {{ item.prestataire|slice(0, 35) ~ '...' }}
+          {% else  %}
+            {{ item.prestataire }}
+          {% endif %}
+        </span>
+      </div>
+    </div>
+    <a
+      href="{{ href }}"
+      id="{{ 'entity-comparison-' ~ compareListId ~ '-' ~ item.id }}"
+      data-entity-comparison="{{ compareListId ~ '-' ~ item.id }}"
+      class="use-ajax remove-link fas fa-trash-alt"
+      title="{{ 'Delete from the comparison list'|t }}"
+      aria-label="{{ 'Delete from the comparison list'|t }}">
+    </a>
+  </li>
+  {% else %}
+    <li>{{ item }}</li>
+  {% endif %}
+{% endfor %}
+</ul>
+{% else %}
+<ul class="empty-popup-list-comparison">
+  {{ 'Click on the icon'|t }} {% include'@tpi_entity_comparison/comparison-icon.html.twig' %} {{ 'to add'|t }}
+  {% if 'mmt' in compareListId|render|render %}
+     {{ 'an MMT to this comparison list.'|t }}
+  {% else %}
+     {{ 'a stage to this comparison list.'|t }}
+  {% endif %}
+</ul>
+{% endif %}
+

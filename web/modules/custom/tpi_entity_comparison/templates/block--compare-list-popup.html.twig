@@ -1,0 +1,29 @@
+{% if user.hasPermission('tpi comparison list access') %}
+  <div id="compare-list-wrapper">
+    <button id="compare-list-toggle-btn" type="button">
+      <span class="icon-wrapper">
+        {% include'@tpi_entity_comparison/templates/comparison-icon.html.twig' %}
+        {{ bamboo_render_block('tpi_entity_comparison_lazy_block_counter') }}
+        </span>
+      <span class="label">
+        {{ "Comparison"|t }}
+      </span>
+    </button>
+
+    <div id="popup-compare-list" data-backdrop="false" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{ 'Comparison lists'|t }}</h5>
+            <button id="compare-list-close-btn" type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            {{ bamboo_render_block('tpi_lazy_entity_comparison_list') }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,17 @@
+tpi_entity_comparison.action:
+  path: '/tpi_entity_comparison/{entity_comparison_id}/{entity_id}'
+  defaults:
+    _controller: '\Drupal\tpi_entity_comparison\Controller\ComparisonActionButton::action'
+    _title: 'Comparison link add/suppress action'
+  requirements:
+    _permission: 'access content'
+    _role: 'authenticated'
+
+tpi_entity_comparison.comparison_display:
+  path: '/tpi_entity_comparison/{entity_comparison_id}'
+  defaults:
+    _controller: '\Drupal\tpi_entity_comparison\Controller\EntityComparisonDisplay::compare'
+    _title: 'Comparison page display'
+  requirements:
+    _permission: 'access content'
+    _role: 'authenticated'

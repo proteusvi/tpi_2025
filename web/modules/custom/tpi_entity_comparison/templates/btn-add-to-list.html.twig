@@ -1,0 +1,20 @@
+{% if user.hasPermission('tpi comparison list access') %}
+  {% set href = url('tpi_entity_comparison.action', {'entity_comparison_id': pathCompareList, 'entity_id': itemId}) %}
+
+  {% set dataEntityComparison = compareListId ~ '-' ~ itemId %}
+  {% if isDisabled %}
+    {%set label = 'The item is already in the list.'|t %}
+    {%set href = '#' %}
+  {% else %}
+    {%set label = 'Add to the comparison list'|t %}
+  {% endif %}
+  <a href="{{ href}}"
+    title="{{ label }}"
+    data-entity-comparison="{{ compareListId ~ '-' ~ itemId}}"
+    class="compare-btn remove-link{% if not isDisabled %} use-ajax{% endif %}"
+    aria-label="{{ label }}"
+    {% if isDisabled %} onclick="return false;"{% endif %}
+  >
+    {% include'@tpi_entity_comparison/comparison-icon.html.twig' %}
+  </a>
+{% endif %}

@@ -1,0 +1,4 @@
+tpi comparison list access:
+  title: 'TPI : Access comparison pop up list'
+  description: 'Allow the user to access the comparison list'
+  restrict access: true

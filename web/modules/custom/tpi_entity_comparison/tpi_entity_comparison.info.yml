@@ -1,0 +1,10 @@
+name: TPI Entity Comparison
+type: module
+description: Link TPI's block to use module entity_comparison.
+interface translation project: tpi_entity_comparison
+interface translation server pattern: modules/custom/%project/translations/%project.%language.po
+core_version_requirement: ^10
+dependencies:
+  - drupal:entity_comparison
+package: Custom # Pour l'organisation dans l'interface d'administration
+version: 1.0
