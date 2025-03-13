@@ -1,0 +1,4 @@
+use cl server:
+  title: "Use the CL Server endpoint"
+  description: "Allows a user to access the Component Library: Server endpoint"
+  restrict access: true

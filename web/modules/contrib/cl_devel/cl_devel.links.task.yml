@@ -1,0 +1,4 @@
+cl_devel.registry_tab:
+  title: 'Component Audit'
+  route_name: cl_devel.registry
+  base_route: sdc.settings

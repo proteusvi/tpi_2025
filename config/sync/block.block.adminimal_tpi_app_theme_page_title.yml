@@ -1,0 +1,27 @@
+uuid: 5c9059e7-70e5-4fd2-8a54-d0b42c075d6c
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - adminimal_tpi_app_theme
+_core:
+  default_config_hash: iAhownPneFU_HfOgPVITz339xTxjd_yAzbcBOUBd4Sk
+id: adminimal_tpi_app_theme_page_title
+theme: adminimal_tpi_app_theme
+region: header
+weight: -7
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Titre de la page'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: '<front>'

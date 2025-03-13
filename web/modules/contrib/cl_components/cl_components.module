@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Module implementation file.
+ */
+
+use Drupal\cl_components\Plugin\Component;
+use Drupal\cl_components\ComponentPluginManager;
+use Drupal\cl_components\Exception\InvalidComponentHookException;
+
+/**
+ * @file
+ * Module implementation file.
+ */
+
+/**
+ *
+ */
+function cl_components_manager(): ComponentPluginManager {
+  $manager = \Drupal::service('plugin.manager.cl_component');
+  assert($manager instanceof ComponentPluginManager);
+  return $manager;
+}
+
+/**
+ * Implements hook_library_info_build().
+ */
+function cl_components_library_info_build() {
+  // Iterate over all the components to get the CSS and JS files.
+  $plugin_manager = cl_components_manager();
+  $components = $plugin_manager->getAllComponents();
+  $libraries = array_reduce(
+    $components,
+    static function (array $libraries, Component $component) use ($plugin_manager) {
+      $library = $plugin_manager->libraryFromComponent($component);
+      if (empty($library)) {
+        return $libraries;
+      }
+      try {
+        $library = $component->invokeHook('library_info_alter', [$library]);
+      }
+      catch (InvalidComponentHookException $e) {
+        // The component does not support this hook. It is fine, do nothing.
+      }
+      $library_name = $component->getLibraryName();
+      [, $library_id] = explode('/', $library_name);
+      return array_merge($libraries, [$library_id => $library]);
+    },
+    []
+  );
+  $libraries['all'] = [
+    'dependencies' => array_map(
+      static fn(Component $component) => $component->getLibraryName(),
+      $components
+    ),
+  ];
+  return $libraries;
+}

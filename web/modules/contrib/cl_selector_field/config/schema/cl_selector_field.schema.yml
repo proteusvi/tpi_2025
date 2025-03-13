@@ -1,0 +1,39 @@
+# Field instance.
+field.field_settings.cl_components_style_selector:
+  type: mapping
+  label: Style selector settings
+  mapping:
+    features:
+      type: sequence
+      label: Supported features
+      sequence:
+        type: string
+        label: Name of the supported feature
+    filters:
+      type: mapping
+      mapping:
+        allowed:
+          type: sequence
+          label: Allowed components
+          sequence:
+            type: string
+            label: Machine name of the allowed component
+        forbidden:
+          type: sequence
+          label: Forbidden components
+          sequence:
+            type: string
+            label: Machine name of the forbidden component
+        statuses:
+          type: sequence
+          label: Supported component statuses
+          sequence:
+            type: string
+# Default value.
+field.value.cl_components_style_selector:
+  type: mapping
+  label: Default value
+  mapping:
+    component:
+      type: string
+      label: Component

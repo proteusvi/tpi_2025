@@ -1,0 +1,4 @@
+cl_registry:
+  css:
+    component:
+      src/assets/css/cl-registry.css: {}

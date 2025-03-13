@@ -1,0 +1,41 @@
+# Settings
+sdc.settings:
+  type: config_object
+  mapping:
+    debug:
+      type: boolean
+
+# Field instance.
+field.field_settings.cl_devel_style_selector:
+  type: mapping
+  label: Style selector settings
+  mapping:
+    features:
+      type: sequence
+      label: Supported features
+      sequence:
+        type: string
+        label: Name of the supported feature
+    allowed:
+      type: sequence
+      label: Allowed modules
+      sequence:
+        type: string
+        label: Machine name of the allowed Fractal module
+    forbidden:
+      type: sequence
+      label: Forbidden modules
+      sequence:
+        type: string
+        label: Machine name of the forbidden Fractal module
+# Default value.
+field.value.cl_devel_style_selector:
+  type: mapping
+  label: Default value
+  mapping:
+    module:
+      type: string
+      label: Module
+    variant:
+      type: string
+      label: Variant

@@ -1,0 +1,9 @@
+{% if imageSrc is not empty %}
+  <div {{ attributes.addClass('image--wrapper') }}>
+    <img src="{{ imageSrc }}"
+         alt="{{ 'Thumbnail for component'|t }}">
+  </div>
+{% else %}
+  <div {{ attributes.addClass(['image--wrapper', 'image--wrapper__empty']).setAttribute('style', 'width: ' ~ emptyWidth ~ 'px; height: ' ~ emptyHeight ~ 'px;') }}>
+  </div>
+{% endif %}

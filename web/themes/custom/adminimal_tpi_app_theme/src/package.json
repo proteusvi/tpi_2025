@@ -1,0 +1,11 @@
+{
+    "name": "tpi",
+    "version": "1.0.0",
+    "description": "project tpi",
+    "scripts": {
+        "start": "yarn gulp"
+    },
+    "dependencies": {
+        "slick-carousel": "^1.8.1"
+    }
+}

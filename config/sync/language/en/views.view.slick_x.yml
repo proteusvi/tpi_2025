@@ -1,0 +1,96 @@
+label: 'Slick x'
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Apply
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      fields:
+        title:
+          separator: ', '
+      title: 'Slick x'
+  block_asnavfor_multi_value:
+    display_title: 'Block: asNavFor Multi-value field'
+    display_options:
+      block_description: 'Slick X: asNavFor Multi-value field'
+      fields:
+        field_images:
+          separator: ', '
+        edit_node:
+          text: edit
+        title:
+          separator: ', '
+      title: 'Slick X: asNavFor Multi-value field'
+  block_asnavfor_single:
+    display_title: 'Block: asNavFor Single'
+    display_options:
+      block_description: 'Slick X: asNavFor Single Node'
+      fields:
+        title:
+          separator: ', '
+        field_images:
+          separator: ', '
+        edit_node:
+          text: edit
+      title: 'Slick X: asnavFor Single Node'
+  block_asnavfor_split:
+    display_title: 'Block: asNavFor Split'
+    display_options:
+      block_description: 'Slick X: asNavFor Split'
+      fields:
+        title:
+          separator: ', '
+        field_images:
+          separator: ', '
+        edit_node:
+          text: edit
+      title: 'Slick X: asnavFor Split'
+  block_carousel:
+    display_title: 'Block: Carousel'
+    display_options:
+      block_description: 'Slick X: Carousel'
+      fields:
+        field_images:
+          separator: ', '
+        edit_node:
+          text: edit
+        title:
+          separator: ', '
+      title: 'Slick X: Carousel'
+  block_fullscreen:
+    display_title: 'Block: Fullscreen'
+    display_options:
+      block_description: 'Slick X: Fullscreen'
+      fields:
+        field_images:
+          separator: ', '
+        edit_node:
+          text: edit
+      title: 'Slick X: Fullscreen'
+  block_grid:
+    display_title: 'Block: Grid'
+    display_options:
+      block_description: 'Slick X: Grid'
+      title: 'Slick X: Grid'
+      fields:
+        title:
+          separator: ', '
+        field_image:
+          separator: ', '
+        edit_node:
+          text: edit
+  block_main:
+    display_title: 'Block: Main'
+    display_options:
+      block_description: 'Slick X: Main'
+      fields:
+        field_images:
+          separator: ', '
+        edit_node:
+          text: edit
+      title: 'Slick X: Main'

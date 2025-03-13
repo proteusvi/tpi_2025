@@ -1,0 +1,32 @@
+uuid: 77330d61-570d-4faf-9411-4f820a1daf61
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.promoted_items
+  module:
+    - system
+    - views
+  theme:
+    - adminimal_tpi_app_theme
+_core:
+  default_config_hash: JQiEYLzNTj4IyGi0wooMJIWcdgA4NV_jqJzCOtt9EAI
+id: adminimal_tpi_app_theme_views_block__promoted_items_block_1
+theme: adminimal_tpi_app_theme
+region: header
+weight: -6
+provider: null
+plugin: 'views_block:promoted_items-block_1'
+settings:
+  id: 'views_block:promoted_items-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    context_mapping: {  }
+    pages: '<front>'

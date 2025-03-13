@@ -1,0 +1,43 @@
+uuid: 196af331-20c3-4f3d-9e1f-af3c329ea960
+langcode: fr
+status: true
+dependencies:
+  enforced:
+    module:
+      - slick_example
+_core:
+  default_config_hash: o1VMXPrlvL3rux5Wj_3_J3H5wZhtKWDj-W9yC0THNZo
+id: x_main
+name: x_main
+weight: -4
+label: 'X Main'
+group: main
+skin: fullwidth
+breakpoints: 3
+optimized: true
+options:
+  settings:
+    downArrow: true
+    downArrowTarget: '#main'
+    downArrowOffset: 120
+    lazyLoad: ondemand
+    slidesToShow: 1
+    cssEase: 'cubic-bezier(0.445, 0.050, 0.550, 0.950)'
+    easing: easeOutBounce
+  responsives:
+    responsive:
+      -
+        breakpoint: 900
+        unslick: false
+        settings:
+          swipeToSlide: true
+      -
+        breakpoint: 480
+        unslick: false
+        settings:
+          swipeToSlide: true
+      -
+        breakpoint: 320
+        unslick: false
+        settings:
+          swipeToSlide: true

@@ -25,7 +25,7 @@ dependencies:
 _core:
   default_config_hash: 0vhO_07tJzAJlfixEyshv-AbpRto3wdMJHkgK5CjBEY
 id: author
-label: Author
+label: Auteur
 weight: 3
 is_admin: null
 permissions:

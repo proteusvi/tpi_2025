@@ -1,0 +1,13 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Image With Fallback
+description: Render an image based on its source URL, or an empty div with a fallback background image.
+status: stable
+props:
+  type: object
+  properties:
+    imageSrc:
+      type: string
+    emptyWidth:
+      type: number
+    emptyHeight:
+      type: number

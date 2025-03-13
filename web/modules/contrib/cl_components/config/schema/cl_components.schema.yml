@@ -1,0 +1,6 @@
+# Settings
+cl_components.settings:
+  type: config_object
+  mapping:
+    debug:
+      type: boolean

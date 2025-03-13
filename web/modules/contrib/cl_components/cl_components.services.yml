@@ -1,0 +1,37 @@
+services:
+  # Twig loader to allow embedding templates with a component identifier.
+  Drupal\cl_components\Twig\TwigComponentLoader:
+    arguments:
+      - '@plugin.manager.cl_component'
+      - '@renderer'
+      - '%twig.config%'
+    tags:
+      - { name: twig.loader, priority: 5 }
+
+  Drupal\cl_components\ComponentNegotiator:
+    arguments:
+      - '@theme.manager'
+      - '@extension.list.module'
+
+  Drupal\cl_components\Twig\TwigExtension:
+    arguments:
+      - '@plugin.manager.cl_component'
+    tags:
+      - { name: twig.extension }
+
+  cache.component_registry:
+    class: Drupal\Core\Cache\CacheBackendInterface
+    tags:
+      - { name: cache.bin }
+    factory: ['@cache_factory', 'get']
+    arguments: [component_registry]
+
+  plugin.manager.cl_component:
+    class: Drupal\cl_components\ComponentPluginManager
+    arguments:
+      - '@module_handler'
+      - '@theme_handler'
+      - '@cache.component_registry'
+      - '@config.factory'
+      - '@theme.manager'
+      - '@Drupal\cl_components\ComponentNegotiator'

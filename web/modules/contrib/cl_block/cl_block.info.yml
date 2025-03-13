@@ -1,0 +1,15 @@
+name: 'Component Libraries: Blocks'
+description: Allows turning CL Components into configurable blocks.
+type: module
+dependencies:
+  - drupal:block
+  - cl_components:cl_components
+  - cl_editorial:cl_editorial
+  - embed:embed (>= 8.x-1.5)
+core: 8.x
+core_version_requirement: ^8 || ^9 || ^10
+
+# Information added by Drupal.org packaging script on 2022-10-05
+version: '1.0.0-rc1'
+project: 'cl_block'
+datestamp: 1665005795

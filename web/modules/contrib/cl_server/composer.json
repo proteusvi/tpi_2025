@@ -1,0 +1,16 @@
+{
+    "name": "drupal/cl_server",
+    "description": "Providers server rendering for CL Components",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Mateu Aguiló Bosch",
+            "email": "mateu@mateuaguilo.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.1"
+    }
+}

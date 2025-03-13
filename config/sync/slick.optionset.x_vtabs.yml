@@ -1,0 +1,31 @@
+uuid: 8cbed1be-949a-4330-b336-c1ad63474b9c
+langcode: fr
+status: true
+dependencies:
+  enforced:
+    module:
+      - slick_example
+_core:
+  default_config_hash: _DNXVjmvUqCHzD5iGQO8AzV_KbtQX-z23anSz0jJKHY
+id: x_vtabs
+name: x_vtabs
+weight: null
+label: 'X VTabs'
+group: thumbnail
+skin: vtabs
+breakpoints: 0
+optimized: true
+options:
+  settings:
+    accessibility: false
+    centerMode: true
+    centerPadding: '0'
+    focusOnSelect: true
+    lazyLoad: ondemand
+    mouseWheel: true
+    slidesToShow: 7
+    slidesToScroll: 3
+    edgeFriction: 1.0
+    touchMove: false
+    vertical: true
+    verticalSwiping: true

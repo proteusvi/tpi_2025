@@ -1,0 +1,58 @@
+<article {{ attributes.addClass('component-details') }}>
+  <p>{{ description }}</p>
+  <div class='image-table--wrapper'>
+    <table>
+      <tr>
+        <th>{{ 'ID'|t }}</th>
+        <td><code>{{ id }}</code></td>
+      </tr>
+      <tr>
+        <th>{{ 'Machine Name'|t }}</th>
+        <td><code>{{ machineName }}</code></td>
+      </tr>
+      <tr>
+        <th>{{ 'Status'|t }}</th>
+        <td><code>{{ status }}</code></td>
+      </tr>
+    </table>
+    {% include 'cl_devel:image-with-fallback' with {
+      imageSrc: thumbnailHref,
+      emptyWidth: 360,
+      emptyHeight: 210,
+    } only %}
+  </div>
+  <h2>📔️ {% trans %}README.md{% endtrans %}</h2>
+  <div class='component-details--readme'>
+    {% block documentation %}
+      {{ documentation }}
+    {% endblock %}
+  </div>
+  <h2>🗳️️️ {% trans %}Slots{% endtrans %}</h2>
+  {% if slots is empty %}
+    <p>{{ 'No slots defined for this component'|t }}</p>
+  {% else %}
+    <p>{{ 'Slots defined for the component:'|t }}</p>
+    <ul>
+      {% for slot, info in slots %}
+        <li><code>{{ slot }}</code></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <h2>🎛️️ {% trans %}Props{% endtrans %}</h2>
+  {% for machineName, prop in props.properties %}
+    <h4>{{ machineName }}</h4>
+    {{ prop.description }}
+    <table>
+      <tr>
+      {% for key, value in prop|without('description') %}
+          <th>{{ key }}</th>
+      {% endfor %}
+      </tr>
+      <tr>
+      {% for value in prop|without('description') %}
+          <td><code>{{ value|json_encode }}</code></td>
+      {% endfor %}
+      </tr>
+    </table>
+  {% endfor %}
+</article>

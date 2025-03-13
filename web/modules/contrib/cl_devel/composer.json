@@ -1,0 +1,17 @@
+{
+    "name": "drupal/cl_devel",
+    "description": "Development aids for Single Directory Components",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Mateu Aguiló Bosch",
+            "email": "mateu@mateuaguilo.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "ext-json": "*",
+        "league/commonmark": "^2.4"
+    }
+}

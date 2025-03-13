@@ -1,0 +1,30 @@
+$schema: https://git.drupalcode.org/project/cl_components/-/raw/1.x/src/metadata.schema.json
+machineName: my-button
+name: Button
+status: READY
+componentType: atom
+description: JavaScript enhanced button that tracks the number of times a user clicked it.
+libraryDependencies:
+  - core/jquery.once
+variants:
+  - primary
+schemas:
+  props:
+    type: object
+    required:
+      - text
+    properties:
+      text:
+        type: string
+        title: Title
+        description: The title for the button
+        examples:
+          - Press
+          - Submit now
+      iconType:
+        type: string
+        title: Icon Type
+        enum:
+          - power
+          - like
+          - external

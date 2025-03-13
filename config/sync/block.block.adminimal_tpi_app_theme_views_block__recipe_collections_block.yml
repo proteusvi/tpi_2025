@@ -1,0 +1,26 @@
+uuid: 592d0c0e-e649-4e69-932f-1d8d9d06532f
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.recipe_collections
+  module:
+    - views
+  theme:
+    - adminimal_tpi_app_theme
+_core:
+  default_config_hash: rLgYDFYFOZvMqivqa3tBKA4mSvcypo4oTZKuZ9mMERc
+id: adminimal_tpi_app_theme_views_block__recipe_collections_block
+theme: adminimal_tpi_app_theme
+region: header
+weight: 0
+provider: null
+plugin: 'views_block:recipe_collections-block'
+settings:
+  id: 'views_block:recipe_collections-block'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

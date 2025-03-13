@@ -1,0 +1,229 @@
+<?php
+
+/**
+ * @file
+ * UI Patterns Field Formatters updates.
+ */
+
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\layout_builder\Entity\LayoutBuilderEntityViewDisplay;
+use Drupal\ui_patterns\Form\PatternDisplayFormTrait;
+
+/**
+ * Clean up existing formatters settings.
+ */
+function ui_patterns_field_formatters_update_9001(&$sandbox) {
+  $displayStorage = \Drupal::entityTypeManager()->getStorage('entity_view_display');
+
+  if (!isset($sandbox['total'])) {
+    $sandbox['ids'] = $displayStorage->getQuery()->execute();
+    $sandbox['total'] = count($sandbox['ids']);
+    $sandbox['progress'] = 0;
+  }
+
+  $id = array_pop($sandbox['ids']);
+  $display = $displayStorage->load($id);
+
+  $changed = FALSE;
+  foreach ($display->getComponents() as $name => $definition) {
+    if (isset($definition['type']) &&
+      (
+        $definition['type'] === 'pattern_formatter' ||
+        $definition['type'] === 'pattern_wrapper_entity_reference_formatter'
+      )
+    ) {
+      PatternDisplayFormTrait::processFormStateValues($definition['settings']);
+      $display->setComponent($name, $definition);
+      $changed = TRUE;
+    }
+  }
+
+  if (!empty($changed)) {
+    $display->save();
+  }
+  $sandbox['progress']++;
+
+  $sandbox['#finished'] = $sandbox['progress'] / $sandbox['total'];
+}
+
+/**
+ * Clean up existing formatters settings placed by layout builder.
+ */
+function ui_patterns_field_formatters_update_9002(&$sandbox) {
+  if (!\Drupal::moduleHandler()->moduleExists('layout_builder')) {
+    return;
+  }
+
+  $displayStorage = \Drupal::entityTypeManager()->getStorage('entity_view_display');
+
+  if (!isset($sandbox['total'])) {
+    $sandbox['ids'] = $displayStorage->getQuery()->execute();
+    $sandbox['total'] = count($sandbox['ids']);
+    $sandbox['progress'] = 0;
+  }
+
+  $id = array_pop($sandbox['ids']);
+  $display = $displayStorage->load($id);
+  if ($display instanceof LayoutBuilderEntityViewDisplay) {
+    $sections = $display->getSections();
+    foreach ($sections as $section) {
+      foreach ($section->getComponents() as $component) {
+        $component_array = $component->toArray();
+        if (isset($component_array['configuration']['formatter']['type'])) {
+          $definition = &$component_array['configuration']['formatter'];
+          if (
+            $definition['type'] === 'pattern_formatter' ||
+            $definition['type'] === 'pattern_wrapper_entity_reference_formatter'
+          ) {
+            PatternDisplayFormTrait::processFormStateValues($definition['settings']);
+            $component->setConfiguration($component_array['configuration']);
+            $changed = TRUE;
+          }
+        }
+      }
+    }
+  }
+  if (!empty($changed)) {
+    $display->save();
+  }
+
+  $sandbox['progress']++;
+  $sandbox['#finished'] = $sandbox['progress'] / $sandbox['total'];
+}
+
+/**
+ * Enable field_formatter module.
+ */
+function ui_patterns_field_formatters_update_9200(&$sandbox) {
+  \Drupal::service('module_installer')->install(['field_formatter']);
+}
+
+/**
+ * Convert old formatter settings to new ones.
+ */
+function ui_patterns_field_formatters_update_9201(&$sandbox) {
+  /** @var \Drupal\Core\Config\Entity\ConfigEntityStorage $viewDisplayStorage */
+  $viewDisplayStorage = \Drupal::service('entity_type.manager')->getStorage('entity_view_display');
+  /** @var \Drupal\Core\Entity\EntityFieldManagerInterface $entityFieldManager */
+  $entityFieldManager = \Drupal::service('entity_field.manager');
+
+  if (!isset($sandbox['field_types'])) {
+    /** @var \Drupal\Core\Field\FormatterPluginManager $formattersManager */
+    $formattersManager = \Drupal::service('plugin.manager.field.formatter');
+
+    $field_types = \Drupal::service('plugin.manager.field.field_type')->getDefinitions();
+    foreach ($field_types as $field_type => $definition) {
+      // Some technical field types have no formatters. We don't need them.
+      if (empty($definition['default_formatter'])) {
+        continue;
+      }
+      $formatter_definition = $formattersManager->getDefinition($definition['default_formatter']);
+      $sandbox['field_types'][$field_type] = [
+        'formatter' => $definition['default_formatter'],
+        'settings' => $formatter_definition['class']::defaultSettings(),
+      ];
+    }
+
+    $sandbox['vdids'] = $viewDisplayStorage->getQuery()->execute();
+    $sandbox['total'] = count($sandbox['vdids']);
+    $sandbox['progress'] = 0;
+  }
+
+  $vdids = array_splice($sandbox['vdids'], 0, 10);
+  foreach ($viewDisplayStorage->loadMultiple($vdids) as $view_display) {
+    /** @var \Drupal\Core\Entity\Entity\EntityViewDisplay $view_display */
+    $changed = FALSE;
+    $fields_definitions = $entityFieldManager->getFieldDefinitions($view_display->getTargetEntityTypeId(), $view_display->getTargetBundle());
+    foreach ($view_display->getComponents() as $field_name => $component) {
+      // Prevent extra fields to be processed as they cannot have formatters.
+      if (empty($component['type']) || empty($fields_definitions[$field_name])) {
+        continue;
+      }
+
+      $field_definition = $fields_definitions[$field_name]->getFieldStorageDefinition();
+      $field_type = $field_definition->getType();
+      $field_multiple = $field_definition->getCardinality() > 1 || $field_definition->getCardinality() === FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED;
+
+      if ($component['type'] === 'pattern_formatter') {
+        $component['type'] = $field_multiple ? 'pattern_each_formatter' : 'pattern_all_formatter';
+        $component['settings']['type'] = $sandbox['field_types'][$field_type]['formatter'];
+        $component['settings']['settings'] = $sandbox['field_types'][$field_type]['settings'];
+
+        foreach ($component['settings']['pattern_mapping'] as $mapping_key => $mapping_settings) {
+          // Ensure that we don't change settings we don't own.
+          if ($mapping_settings['plugin'] !== 'field_properties') {
+            continue;
+          }
+
+          // Old _label source converted to the new one.
+          if ($mapping_settings['source'] === '_label') {
+            $mapping_settings['plugin'] = 'field_meta_properties';
+            $mapping_settings['source'] = '_label';
+            $component['settings']['pattern_mapping']['field_meta_properties:_label'] = $mapping_settings;
+          }
+          // Old _value_display source converted to the _formatted one with
+          // default formatter settings.
+          elseif ($mapping_settings['source'] === '_value_display') {
+            $mapping_settings['plugin'] = 'field_meta_properties';
+            $mapping_settings['source'] = '_formatted';
+            $component['settings']['pattern_mapping']['field_meta_properties:_formatted'] = $mapping_settings;
+          }
+          // Other sources mapped to new raw properties.
+          else {
+            $mapping_settings['plugin'] = 'field_raw_properties';
+            $component['settings']['pattern_mapping']['field_raw_properties:' . $mapping_settings['source']] = $mapping_settings;
+          }
+          unset($component['settings']['pattern_mapping'][$mapping_key]);
+        }
+
+        $changed = TRUE;
+      }
+      elseif ($component['type'] === 'pattern_wrapper_entity_reference_formatter') {
+        $component['type'] = 'pattern_all_formatter';
+        $component['settings']['type'] = 'entity_reference_entity_view';
+        $component['settings']['settings'] = [
+          'view_mode' => $component['settings']['view_mode'],
+          'link' => $component['settings']['link'],
+        ];
+        unset($component['settings']['view_mode']);
+        unset($component['settings']['link']);
+
+        foreach ($component['settings']['pattern_mapping'] as $mapping_key => $mapping_settings) {
+          // Ensure that we don't change settings we don't own.
+          if ($mapping_settings['plugin'] !== 'field_wrapper') {
+            continue;
+          }
+
+          // Old items source converted to the new _formatted one with the same
+          // entity_reference formatter settings.
+          if ($mapping_settings['source'] === 'items') {
+            $mapping_settings['plugin'] = 'field_meta_properties';
+            $mapping_settings['source'] = '_formatted';
+            $component['settings']['pattern_mapping']['field_meta_properties:_formatted'] = $mapping_settings;
+          }
+          // Old label source converted to the new _label source.
+          elseif ($mapping_settings['source'] === 'label') {
+            $mapping_settings['plugin'] = 'field_meta_properties';
+            $mapping_settings['source'] = '_label';
+            $component['settings']['pattern_mapping']['field_meta_properties:_label'] = $mapping_settings;
+          }
+          unset($component['settings']['pattern_mapping'][$mapping_key]);
+        }
+
+        $changed = TRUE;
+      }
+      $view_display->setComponent($field_name, $component);
+    }
+    if ($changed) {
+      $view_display->save();
+    }
+  }
+
+  $sandbox['progress'] += count($vdids);
+  $sandbox['#finished'] = $sandbox['progress'] / $sandbox['total'];
+  return new TranslatableMarkup('Updated @progress/@total entity view display configuration objects', [
+    '@progress' => $sandbox['progress'],
+    '@total' => $sandbox['total'],
+  ]);
+}

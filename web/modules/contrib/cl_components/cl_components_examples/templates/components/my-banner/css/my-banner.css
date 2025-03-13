@@ -1,0 +1,40 @@
+.cl-component--my-banner {
+  max-width: 1200px;
+  position: relative;
+  color: white;
+  width: 80%;
+  background-size: cover;
+  background: black;
+  padding: 2em;
+}
+
+.cl-component--my-banner--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cl-component--my-banner--header h3 {
+  font-size: 2em;
+  margin: 0;
+}
+
+.cl-component--my-banner--body > * {
+  margin-bottom: 0;
+}
+
+.cl-component--my-banner--body > :first-child {
+  margin-top: 1em;
+}
+
+.cl-component--my-banner[data-cl-component-variant="tall"] {
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.cl-component--my-banner[data-cl-component-variant="tall"] .cl-component--my-banner--header {
+  margin-top: auto;
+}
+.cl-component--my-banner[data-cl-component-variant="tall"] .cl-component--my-banner--header h3 {
+  font-size: 4em;
+}

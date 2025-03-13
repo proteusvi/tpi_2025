@@ -1,0 +1,19 @@
+{
+    "name": "drupal/cl_block",
+    "description": "Allows turning CL Components into configurable blocks.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Mateu Aguiló Bosch",
+            "email": "mateu@mateuaguilo.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.1",
+        "ext-json": "*",
+        "ext-dom": "*",
+        "e0ipso/schema-forms": "^2.2"
+    }
+}

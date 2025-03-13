@@ -1,0 +1,46 @@
+.panel__container {
+  padding: 2em;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.panel__container h3 {
+  margin-top: 0;
+}
+
+.item-list li.panel-item {
+  margin: 2em 0;
+  list-style: none;
+  padding: 2em;
+  list-style: none;
+  background: white;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.item-list li.panel-item.forked {
+  background-image: repeating-linear-gradient(
+    60deg,
+    rgba(255, 238, 204, 0.3),
+    rgba(255, 238, 204, 0.3) 30px,
+    transparent 30px,
+    transparent 60px
+  );
+}
+h4 a.panel-item--anchor {
+  visibility: hidden;
+  margin-left: 0.5rem;
+}
+
+h4:hover a.panel-item--anchor {
+  visibility: visible;
+}
+
+.item-list ul {
+  margin: 0;
+  padding: 0;
+}
+.item-list ul .implemented::before {
+  content: "✅ ";
+}
+.item-list ul .not-implemented {
+  text-decoration: line-through;
+}

@@ -1,0 +1,15 @@
+cl_block.settings:
+  path: '/admin/config/user-interface/cl-components/block'
+  defaults:
+    _title: 'Block Settings'
+    _form: 'Drupal\cl_block\Form\SettingsForm'
+  requirements:
+    _permission: 'administer site configuration'
+
+cl_block.dialog:
+  path: '/cl-block/dialog/{editor}/{embed_button}'
+  defaults:
+    _form: '\Drupal\cl_block\Form\ClBlockDialog'
+    _title: 'Embed CL Component'
+  requirements:
+    _embed_button_editor_access: 'TRUE'

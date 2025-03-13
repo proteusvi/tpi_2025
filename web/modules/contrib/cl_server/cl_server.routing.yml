@@ -1,0 +1,10 @@
+cl_server.render:
+  path: "/_cl_server"
+  defaults:
+    _controller: '\Drupal\cl_server\Controller\ServerEndpointController::render'
+    _title: "CL Server"
+  methods: [GET, POST]
+  requirements:
+    _permission: "use cl server"
+  options:
+    no_cache: 'TRUE'

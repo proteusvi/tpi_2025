@@ -1,0 +1,15 @@
+cl_devel.registry:
+  path: '/admin/config/user-interface/sdc/registry'
+  defaults:
+    _title: 'Component Audit'
+    _controller: '\Drupal\cl_devel\Controller\ComponentAudit::audit'
+  requirements:
+    _permission: 'administer site configuration'
+
+cl_devel.component_details:
+  path: '/admin/config/user-interface/sdc/registry/{component_id}'
+  defaults:
+    _title_callback: '\Drupal\cl_devel\Controller\ComponentDetails::title'
+    _controller: '\Drupal\cl_devel\Controller\ComponentDetails::details'
+  requirements:
+    _permission: 'administer site configuration'

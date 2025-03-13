@@ -1,0 +1,6 @@
+{% if target is not empty %}
+  {% set clAttributes = clAttributes.setAttribute('target', target) %}
+{% endif %}
+<a {{ clAttributes }} href="{{ href }}">
+  {{ text }}
+</a>

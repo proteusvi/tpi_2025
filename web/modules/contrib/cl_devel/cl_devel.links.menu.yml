@@ -1,0 +1,6 @@
+cl_devel.settings:
+  title: 'Single Directory Components'
+  description: Settings for Single Directory Components
+  parent: system.admin_config_ui
+  route_name: cl_devel.registry
+  weight: 10

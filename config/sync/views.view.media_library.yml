@@ -29,7 +29,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Media
+      title: Média
       fields:
         media_bulk_form:
           id: media_bulk_form
@@ -148,12 +148,12 @@ display:
             previous: ‹‹
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
+            items_per_page_label: 'Éléments par page'
             items_per_page_options: '6, 12, 24, 48'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: '- Tout -'
             offset: false
-            offset_label: Offset
+            offset_label: Décalage
       exposed_form:
         type: basic
         options:
@@ -276,7 +276,7 @@ display:
                 operator: '='
                 value: '1'
               2:
-                title: Unpublished
+                title: 'Non publié'
                 operator: '='
                 value: '0'
         name:
@@ -295,7 +295,7 @@ display:
           exposed: true
           expose:
             operator_id: name_op
-            label: Name
+            label: Nom
             description: ''
             use_operator: false
             operator: name_op
@@ -337,7 +337,7 @@ display:
           exposed: true
           expose:
             operator_id: bundle_op
-            label: 'Media type'
+            label: 'Type de média'
             description: ''
             use_operator: false
             operator: bundle_op
@@ -354,7 +354,7 @@ display:
             reduce: false
           is_grouped: false
           group_info:
-            label: 'Media type'
+            label: 'Type de média'
             description: null
             identifier: bundle
             optional: true
@@ -910,7 +910,7 @@ display:
           exception:
             value: all
             title_enable: false
-            title: All
+            title: Tout
           title_enable: false
           title: ''
           default_argument_type: fixed
@@ -993,7 +993,7 @@ display:
           exposed: true
           expose:
             operator_id: name_op
-            label: Name
+            label: Nom
             description: ''
             use_operator: false
             operator: name_op
@@ -1127,7 +1127,7 @@ display:
           entity_type: media
           entity_field: thumbnail
           plugin_id: field
-          label: Thumbnail
+          label: Vignette
           type: image
           settings:
             image_link: ''
@@ -1142,7 +1142,7 @@ display:
           entity_type: media
           entity_field: name
           plugin_id: field
-          label: Name
+          label: Nom
           type: string
           settings:
             link_to_entity: false
@@ -1154,7 +1154,7 @@ display:
           entity_type: media
           entity_field: uid
           plugin_id: field
-          label: Author
+          label: Auteur
           type: entity_reference_label
           settings:
             link: true
@@ -1200,7 +1200,7 @@ display:
           exception:
             value: all
             title_enable: false
-            title: All
+            title: Tout
           title_enable: false
           title: ''
           default_argument_type: fixed
@@ -1283,7 +1283,7 @@ display:
           exposed: true
           expose:
             operator_id: name_op
-            label: Name
+            label: Nom
             description: ''
             use_operator: false
             operator: name_op

@@ -1,0 +1,16 @@
+.image--wrapper {
+  align-self: center;
+}
+
+.image--wrapper img {
+  max-width: 500px;
+  max-height: 300px;
+  margin: 0;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.image--wrapper__empty {
+  background-image: url("img/fallback-image.svg");
+  background-position: center;
+  background-size: cover;
+}

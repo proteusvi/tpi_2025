@@ -1,0 +1,16 @@
+.component-details .image-table--wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.image-table--wrapper table {
+  align-self: center;
+  max-width: 250px;
+}
+
+.component-details--readme {
+  margin-top: 1em;
+  padding: 1em;
+  border: 1px solid #cc00ff26;
+}

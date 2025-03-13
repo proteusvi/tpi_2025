@@ -13,7 +13,7 @@ id: node.page.layout_builder__layout
 field_name: layout_builder__layout
 entity_type: node
 bundle: page
-label: Layout
+label: 'Mise en page'
 description: ''
 required: false
 translatable: false

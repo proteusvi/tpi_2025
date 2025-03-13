@@ -1,0 +1,10 @@
+name: CL Devel
+type: module
+description: Provides development aids to component developers
+package: Components
+core_version_requirement: ^10.3 || ^11
+
+# Information added by Drupal.org packaging script on 2024-10-26
+version: '2.0.0'
+project: 'cl_devel'
+datestamp: 1729926785

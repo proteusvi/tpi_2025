@@ -1,0 +1,10 @@
+services:
+  logger.channel.cl_block:
+    parent: logger.channel_base
+    arguments: ['cl_block']
+
+  cl_block.form_generator:
+    class: SchemaForms\Drupal\FormGeneratorDrupal
+
+  Drupal\cl_block\Render\ComponentBlockRenderer:
+    arguments: ['@renderer', '@token', '@plugin.manager.cl_component']

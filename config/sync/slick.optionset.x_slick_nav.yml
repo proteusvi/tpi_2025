@@ -1,0 +1,43 @@
+uuid: 9b9077be-5fbc-40d3-959e-511c9b260f84
+langcode: fr
+status: true
+dependencies:
+  enforced:
+    module:
+      - slick_example
+_core:
+  default_config_hash: 6VVSZr6cD6H7AjX44mjz6GfR8XQ8397azrrdfLZq0Ys
+id: x_slick_nav
+name: x_slick_nav
+weight: -1
+label: 'X Slick nav'
+group: thumbnail
+skin: asnavfor
+breakpoints: 2
+optimized: true
+options:
+  settings:
+    centerMode: true
+    centerPadding: ''
+    focusOnSelect: true
+    lazyLoad: ondemand
+    slidesToShow: 7
+  responsives:
+    responsive:
+      -
+        breakpoint: 769
+        unslick: false
+        settings:
+          arrows: false
+          centerMode: true
+          centerPadding: ''
+          focusOnSelect: true
+          slidesToShow: 5
+      -
+        breakpoint: 481
+        unslick: false
+        settings:
+          centerMode: true
+          centerPadding: '0'
+          focusOnSelect: true
+          slidesToShow: 3

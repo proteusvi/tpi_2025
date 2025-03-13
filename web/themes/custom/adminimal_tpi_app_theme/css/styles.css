@@ -1,0 +1,30 @@
+.taxonomy-vocabulary-form .button--danger,
+.taxonomy-term-form .button--danger {
+  background-color: #d9534f;
+  border: 1px solid #d9534f;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  padding: 4px 1.5em;
+  line-height: normal;
+}
+
+.taxonomy-vocabulary-form .button--danger:hover,
+.taxonomy-vocabulary-form .button--danger:focus,
+.taxonomy-term-form .button--danger:hover,
+.taxonomy-term-form .button--danger:focus {
+  border: 1px solid #d9534f;
+  color: #d9534f;
+  background-color: #fff;
+  text-decoration: none;
+}
+
+.breadcrumb {
+  padding-bottom: 30px;
+}
+
+
+form#taxonomy-overview-terms  tr.unpublished {
+  background-color: #ededed;
+  opacity: .65;
+}

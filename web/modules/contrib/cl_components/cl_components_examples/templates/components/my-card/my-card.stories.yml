@@ -1,0 +1,17 @@
+title: CL Components/Examples/Card
+stories:
+  - name: 1. Default
+    args:
+      header: I am a header!
+      card_body: |
+        <p>I am the <em>card</em> contents.</p>
+        {% include 'my-button' with { text: 'Learn more', iconType: 'external' } %}
+  - name: 2. Light
+    parameters:
+      options:
+        variant: light
+    args:
+      header: I am a header!
+      card_body: |
+        <p>I am the <em>card</em> contents.</p>
+        {% include 'my-button' with { text: 'Learn more', iconType: 'external' } %}

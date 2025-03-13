@@ -1,0 +1,13 @@
+name: 'Component Libraries: Components'
+description: Drupal module that allows to declare, discover, and render self-contained components.
+type: module
+dependencies:
+  - drupal:serialization
+core: 8.x
+core_version_requirement: ^8 || ^9 || ^10
+configure: cl_components.settings
+
+# Information added by Drupal.org packaging script on 2023-03-22
+version: '1.0.0-rc7'
+project: 'cl_components'
+datestamp: 1679476588

@@ -1,0 +1,19 @@
+$schema: https://git.drupalcode.org/project/cl_components/-/raw/1.x/src/metadata.schema.json
+machineName: my-card
+name: Card
+status: BETA
+componentType: organism
+variants:
+  - light
+schemas:
+  props:
+    type: object
+    required:
+      - header
+    properties:
+      header:
+        type: string
+        title: Header
+        description: The card header
+        examples:
+          - I am a header!

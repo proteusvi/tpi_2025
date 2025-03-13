@@ -1,0 +1,6 @@
+.ui-dialog.cl-block-select-dialog {
+  min-width: 60%;
+}
+.ui-dialog.cl-block-select-dialog .ui-dialog-titlebar {
+  background-image: linear-gradient(to right, #cc00ff, #ff00b2);
+}

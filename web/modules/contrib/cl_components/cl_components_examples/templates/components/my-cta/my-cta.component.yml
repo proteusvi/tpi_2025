@@ -1,0 +1,29 @@
+$schema: https://git.drupalcode.org/project/cl_components/-/raw/1.x/src/metadata.schema.json
+machineName: my-cta
+name: Call to Action
+status: READY
+componentType: atom
+description: Call to action link.
+schemas:
+  props:
+    type: object
+    required:
+      - text
+    properties:
+      text:
+        type: string
+        title: Title
+        description: The title for the cta
+        examples:
+          - Press
+          - Submit now
+      href:
+        type: string
+        title: URL
+        format: uri
+      target:
+        type: string
+        title: Target
+        enum:
+          - ''
+          - _blank

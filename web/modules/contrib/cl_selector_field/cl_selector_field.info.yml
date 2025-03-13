@@ -1,0 +1,12 @@
+name: 'Component Libraries: Selector Field'
+description: Drupal module that allows to create a field to select components.
+type: module
+dependencies:
+  - drupal:serialization
+  - cl_editorial:cl_editorial
+core_version_requirement: ^9 || ^10
+
+# Information added by Drupal.org packaging script on 2023-05-30
+version: '2.0.0-beta1'
+project: 'cl_selector_field'
+datestamp: 1685442461

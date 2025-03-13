@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Module implementation file.
+ */
+
+use Drupal\cl_components\Plugin\Component;
+use Drupal\cl_editorial\NoThemeComponentManager;
+
+/**
+ * Implements hook_cl_component_audit_alter().
+ */
+function cl_block_cl_component_audit_alter(array &$card_build, Component $component): void {
+  $card_build['table']['#header'][] = \t('Block Support');
+  $allowed_components = &drupal_static(__FUNCTION__);
+  if (!isset($allowed_components)) {
+    $settings = \Drupal::config('cl_block.settings');
+    $component_manager = \Drupal::service(NoThemeComponentManager::class);
+    assert($component_manager instanceof NoThemeComponentManager);
+    $allowed_components = array_map(
+      static fn(Component $c) => $c->getId(),
+      $component_manager->getFilteredComponentTypes(
+        $settings->get('allowed'),
+        $settings->get('forbidden'),
+        $settings->get('types'),
+        $settings->get('statuses'),
+      )
+    );
+  }
+  $card_build['table']['#rows'][0][] = in_array($component->getId(), $allowed_components, TRUE)
+    ? \t('🌕 Generates a block')
+    : \t('🌑 No block');
+}

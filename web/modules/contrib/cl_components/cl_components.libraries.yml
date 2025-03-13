@@ -1,0 +1,6 @@
+cl_debug:
+  css:
+    component:
+      src/assets/css/cl-debug.css: {}
+  js:
+    src/assets/js/cl-debug.js: { }

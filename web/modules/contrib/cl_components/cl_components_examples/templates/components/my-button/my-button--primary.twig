@@ -1,0 +1,4 @@
+<button {{ clAttributes.addClass(['button', 'button--primary']) }}>
+  {{ text }}
+  {{ source(clMeta.path ~ '/img/' ~ iconType|default('power') ~ '.svg') }}
+</button>

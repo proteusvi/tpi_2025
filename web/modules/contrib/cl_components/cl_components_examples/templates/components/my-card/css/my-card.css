@@ -1,0 +1,31 @@
+.cl-component--my-card {
+  max-width: 500px;
+  background-color: #252525;
+  border: 1px solid #141414;
+  margin: 15px auto;
+  color: #f1f1f1;
+}
+
+.cl-component--my-card[data-cl-component-variant="light"] {
+  background-color: #f1f1f1;
+  color: #252525;
+  border-color: #fafafa;
+}
+
+.cl-component--my-card__header {
+  font-weight: bold;
+  font-size: 2.5rem;
+  border-bottom: 1px solid #4a4a4a;
+  padding: 12px 24px 5px 24px;
+  margin: 0;
+}
+[data-cl-component-variant="light"] .cl-component--my-card__header {
+  border-bottom-color: #fafafa;
+}
+.cl-component--my-card__body {
+  padding: 12px 24px 24px 24px;
+}
+.cl-component--my-card__body .cl-component--my-button {
+  margin: 0 auto;
+  display: block;
+}

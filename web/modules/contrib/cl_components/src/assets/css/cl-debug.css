@@ -1,0 +1,32 @@
+:root {
+  --indicator-color: rgba(57, 200, 193, 0.35);
+  --indicator-color-hover: rgba(57, 200, 193);
+}
+
+.cl-component--debug::before {
+  position: absolute;
+  color: transparent;
+  display: block;
+  height: 16px;
+  width: 16px;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  background-color: var(--indicator-color);
+  margin: -8px 0 0 -8px;
+  cursor: crosshair;
+  overflow: hidden;
+  transition: all 0.2s;
+  z-index: 1;
+  content: ""
+}
+
+.cl-component--debug:hover::before {
+  height: 24px;
+  width: 24px;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255);
+  box-shadow: 1px 1px 3px #000;
+  background-color: var(--indicator-color-hover);
+  margin: -12px 0 0 -12px;
+}

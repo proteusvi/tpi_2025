@@ -1,0 +1,7 @@
+types:
+  - organism
+statuses:
+  - READY
+  - BETA
+forbidden: {  }
+allowed: {  }

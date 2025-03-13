@@ -1,0 +1,73 @@
+display:
+  default:
+    display_title: Máster
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Aplicar
+          reset_button_label: Restablecer
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      fields:
+        title:
+          separator: ', '
+  block_asnavfor_multi_value:
+    display_options:
+      fields:
+        field_images:
+          separator: ', '
+        edit_node:
+          text: editar
+        title:
+          separator: ', '
+  block_asnavfor_single:
+    display_options:
+      fields:
+        title:
+          separator: ', '
+        field_images:
+          separator: ', '
+        edit_node:
+          text: editar
+  block_asnavfor_split:
+    display_options:
+      fields:
+        title:
+          separator: ', '
+        field_images:
+          separator: ', '
+        edit_node:
+          text: editar
+  block_carousel:
+    display_options:
+      fields:
+        field_images:
+          separator: ', '
+        edit_node:
+          text: editar
+        title:
+          separator: ', '
+  block_fullscreen:
+    display_options:
+      fields:
+        field_images:
+          separator: ', '
+        edit_node:
+          text: editar
+  block_grid:
+    display_options:
+      fields:
+        title:
+          separator: ', '
+        field_image:
+          separator: ', '
+        edit_node:
+          text: editar
+  block_main:
+    display_options:
+      fields:
+        field_images:
+          separator: ', '
+        edit_node:
+          text: editar

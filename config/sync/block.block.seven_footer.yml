@@ -1,0 +1,27 @@
+uuid: ba728bd9-7fb5-470f-a67b-6e866501996a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - seven
+_core:
+  default_config_hash: 9SflLKjOukDutHBBc0A8bldXeitoSFwFyezQoYqiQxI
+id: seven_footer
+theme: seven
+region: header
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: 'Tell us what you think'
+  label_display: '1'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

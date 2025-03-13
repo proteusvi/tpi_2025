@@ -1,0 +1,22 @@
+uuid: 4d17dba8-0b0b-4b63-94bc-853af8b4879f
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - adminimal_tpi_app_theme
+_core:
+  default_config_hash: IxC1zV9L6MyT897p-qPdP5PQiixF2f7pCSmHvCQJUkM
+id: adminimal_tpi_app_theme_local_tasks
+theme: adminimal_tpi_app_theme
+region: header
+weight: -7
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Onglets
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

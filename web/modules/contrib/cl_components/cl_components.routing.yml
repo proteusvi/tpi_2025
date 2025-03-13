@@ -1,0 +1,7 @@
+cl_components.settings:
+  path: '/admin/config/user-interface/cl-components'
+  defaults:
+    _title: 'CL Components'
+    _form: 'Drupal\cl_components\Form\SettingsForm'
+  requirements:
+    _permission: 'administer site configuration'

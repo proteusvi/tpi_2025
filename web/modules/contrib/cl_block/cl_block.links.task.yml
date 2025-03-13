@@ -1,0 +1,6 @@
+cl_block.registry_tab:
+  title: Blocks
+  description: Configure how blocks are generated from CL Components
+  route_name: cl_block.settings
+  base_route: cl_components.settings
+  weight: 8

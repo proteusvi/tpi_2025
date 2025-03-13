@@ -69,7 +69,7 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: field
-          label: 'Content type'
+          label: 'Type de contenu'
           exclude: false
           alter:
             alter_text: false
@@ -132,7 +132,7 @@ display:
           entity_type: user
           entity_field: name
           plugin_id: field
-          label: Author
+          label: Auteur
           exclude: false
           alter:
             alter_text: false
@@ -163,7 +163,7 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_false: Unpublished
+            format_custom_false: 'Non publié'
             format_custom_true: Publié
         changed:
           id: changed
@@ -318,8 +318,8 @@ display:
           pagination_heading_level: h4
           items_per_page: 50
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
+            next: 'Suivant ›'
+            previous: '‹ Précédent'
             first: '« First'
             last: 'Last »'
       exposed_form:
@@ -407,7 +407,7 @@ display:
           exposed: true
           expose:
             operator_id: type_op
-            label: 'Content type'
+            label: 'Type de contenu'
             description: ''
             use_operator: false
             operator: type_op
@@ -479,7 +479,7 @@ display:
                 operator: '='
                 value: '1'
               2:
-                title: Unpublished
+                title: 'Non publié'
                 operator: '='
                 value: '0'
         langcode:

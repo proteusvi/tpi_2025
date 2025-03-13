@@ -1,0 +1,40 @@
+field.formatter.settings.pattern_all_formatter:
+  type: field.formatter.settings.field_link
+  mapping:
+    pattern:
+      type: string
+      label: 'Pattern'
+    pattern_variant:
+      type: string
+      label: 'Variant'
+    pattern_mapping:
+      type: sequence
+      label: 'Pattern mapping'
+      sequence:
+        type: mapping
+        mapping:
+          weight:
+            type: integer
+            label: 'Weight'
+          destination:
+            type: string
+            label: 'Destination'
+          plugin:
+            type: string
+            label: 'Plugin'
+          source:
+            type: string
+            label: 'Source'
+    pattern_settings:
+      type: sequence
+      label: 'Pattern settings'
+      sequence:
+        type: ignore
+    variants_token:
+      type: sequence
+      label: 'Variant token'
+      sequence:
+        type: ignore
+
+field.formatter.settings.pattern_each_formatter:
+  type: field.formatter.settings.pattern_all_formatter

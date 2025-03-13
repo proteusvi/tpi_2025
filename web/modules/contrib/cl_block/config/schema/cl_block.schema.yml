@@ -1,0 +1,53 @@
+# Schema for the configuration files of the Component Libraries: Blocks module.
+cl_block.settings:
+  type: config_object
+  label: 'Component Libraries: Blocks settings'
+  mapping:
+    types:
+      type: sequence
+      label: 'Types'
+      sequence:
+        type: string
+    statuses:
+      type: sequence
+      label: 'Statuses'
+      sequence:
+        type: string
+    forbidden:
+      type: sequence
+      label: 'Forbidden'
+      sequence:
+        type: string
+    allowed:
+      type: sequence
+      label: 'Allowed'
+      sequence:
+        type: string
+
+filter_settings.cl_block:
+  type: filter
+  label: 'Embed CL Component'
+  mapping:
+    filters:
+      type: mapping
+      mapping:
+        types:
+          type: sequence
+          label: 'Types'
+          sequence:
+            type: string
+        statuses:
+          type: sequence
+          label: 'Statuses'
+          sequence:
+            type: string
+        forbidden:
+          type: sequence
+          label: 'Forbidden'
+          sequence:
+            type: string
+        allowed:
+          type: sequence
+          label: 'Allowed'
+          sequence:
+            type: string

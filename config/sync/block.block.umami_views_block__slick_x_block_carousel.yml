@@ -1,0 +1,24 @@
+uuid: fcd931f9-9172-435c-8e73-020953a307b3
+langcode: fr
+status: true
+dependencies:
+  config:
+    - views.view.slick_x
+  module:
+    - views
+  theme:
+    - umami
+id: umami_views_block__slick_x_block_carousel
+theme: umami
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:slick_x-block_carousel'
+settings:
+  id: 'views_block:slick_x-block_carousel'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility: {  }

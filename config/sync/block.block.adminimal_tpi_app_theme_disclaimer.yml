@@ -1,0 +1,30 @@
+uuid: e5b15a2d-8e40-4a01-b340-8d946260e6df
+langcode: fr
+status: true
+dependencies:
+  content:
+    - 'block_content:disclaimer_block:9b4dcd67-99f3-48d0-93c9-2c46648b29de'
+  module:
+    - block_content
+  theme:
+    - adminimal_tpi_app_theme
+  enforced:
+    module:
+      - demo_umami_content
+_core:
+  default_config_hash: OIQOHpV2c31Zgo6ondYNG3s-Ggp600ejI8bts7XVOIs
+id: adminimal_tpi_app_theme_disclaimer
+theme: adminimal_tpi_app_theme
+region: header
+weight: 10
+provider: null
+plugin: 'block_content:9b4dcd67-99f3-48d0-93c9-2c46648b29de'
+settings:
+  id: 'block_content:9b4dcd67-99f3-48d0-93c9-2c46648b29de'
+  label: 'Umami disclaimer'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,104 @@
+{
+  "$id": "https://git.drupalcode.org/project/cl_components/-/raw/1.x/src/metadata.schema.json",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "required": [
+    "machineName",
+    "name",
+    "status",
+    "componentType"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri"
+    },
+    "machineName": {
+      "type": "string",
+      "title": "ID",
+      "description": "Component ID used for reference on other Twig templates and other parts of the system",
+      "pattern": "^[a-z]([a-zA-Z0-9_-]*[a-zA-Z0-9])*$",
+      "examples": [
+        "button",
+        "module_23F"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "title": "Name",
+      "description": "Human readable version of the machineName",
+      "examples": [
+        "Button",
+        "Module 23F"
+      ]
+    },
+    "componentType": {
+      "type": "string",
+      "title": "Component Type",
+      "description": "Weather this component can be exposed to editors in Drupal (module), or they are for use in other components only (utility). Default is module.",
+      "enum": [
+        "atom",
+        "molecule",
+        "organism"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "description": "Human readable description for the component",
+      "examples": [
+        "Plain button. Only available for use in other components. Do not include directly."
+      ]
+    },
+    "status": {
+      "type": "string",
+      "title": "Development Status",
+      "description": "Use this property to identify if the component can be safely used in production.",
+      "enum": [
+        "WIP",
+        "BETA",
+        "READY",
+        "DEPRECATED"
+      ]
+    },
+    "weight": {
+      "type": "integer",
+      "title": "Weight",
+      "description": "When two components share the same ID the one with the lowest weight will be rendered."
+    },
+    "variants": {
+      "type": "array",
+      "title": "Variants",
+      "description": "Only variants listed here can be rendered.",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z]([a-zA-Z0-9_-]*[a-zA-Z0-9])*$"
+      }
+    },
+    "libraryDependencies": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9_-]*/.*$",
+        "title": "Library Dependency",
+        "description": "The machine name of the library this component depends on.",
+        "examples": [
+          "drupal/jquery",
+          "my-module/foo"
+        ]
+      }
+    },
+    "custom": {
+      "type": "object"
+    },
+    "schemas": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "props": {
+          "$ref": "http://json-schema.org/draft-04/schema#"
+        }
+      }
+    }
+  }
+}

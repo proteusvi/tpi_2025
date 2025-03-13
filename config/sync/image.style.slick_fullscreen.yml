@@ -1,0 +1,20 @@
+uuid: 005e1b6d-716c-46a9-923b-bfdbeaebe29c
+langcode: fr
+status: true
+dependencies:
+  enforced:
+    module:
+      - slick_example
+_core:
+  default_config_hash: Gdws_NatYuaBtBO1kMir6-BbSuxw6Z_2J224MryHy3A
+name: slick_fullscreen
+label: 'Slick fullscreen'
+effects:
+  8e56f5d5-7f8e-44bb-ae00-c506185a6f14:
+    uuid: 8e56f5d5-7f8e-44bb-ae00-c506185a6f14
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 1200
+      anchor: center-center

@@ -1,0 +1,12 @@
+name: 'Component Libraries: Components Examples'
+description: Provides example components.
+type: module
+core_version_requirement: ^8 || ^9 || ^10
+dependencies:
+  - cl_components:cl_components
+hidden: true
+
+# Information added by Drupal.org packaging script on 2023-03-22
+version: '1.0.0-rc7'
+project: 'cl_components'
+datestamp: 1679476588

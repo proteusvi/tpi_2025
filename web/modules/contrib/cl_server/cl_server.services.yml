@@ -1,0 +1,53 @@
+parameters:
+  cl_server.development: false
+services:
+  # Set the theme based on the query string parameter.
+  theme.negotiator.cl_server:
+    class: Drupal\cl_server\Theme\ClServerThemeNegotiator
+    tags:
+      - { name: theme_negotiator, priority: 1000 }
+    arguments:
+      - '@request_stack'
+      - '@theme_handler'
+
+  # Enforces all URL links to be absolute so the iframe works.
+  Drupal\cl_server\PathProcessor\AbsolutePathProcessor:
+    tags:
+      - { name: path_processor_outbound, priority: 0 }
+
+  # Enforces all assets to have absolute URLs so the iframe works.
+  Drupal\cl_server\FileUrlGenerator:
+    decorates: file_url_generator
+    public: false
+    arguments: ['@Drupal\cl_server\FileUrlGenerator.inner', '@request_stack']
+
+  # Disables page cache for the endpoint.
+  Drupal\cl_server\PageCache\DisallowPageCache:
+    public: false
+    tags:
+      - { name: page_cache_request_policy }
+    arguments:
+      - '%cl_server.development%'
+
+  # Decorate the data cache backend to avoid caching on the render route.
+  Drupal\cl_server\Cache\SkippableBackend:
+    decorates: cache.data
+    parent: cache.data
+    arguments:
+      - '@Drupal\cl_server\Cache\SkippableBackend.inner'
+      - '@request_stack'
+      - '%cl_server.development%'
+
+  # Decorate the asset resolver, so we can turn off caching and optimization for
+  # the render controller.
+  Drupal\cl_server\Asset\UnoptimizedAssetResolver:
+    decorates: 'asset.resolver'
+    public: false
+    arguments:
+      - '@Drupal\cl_server\Asset\UnoptimizedAssetResolver.inner'
+      - '@request_stack'
+      - '%cl_server.development%'
+
+  Drupal\cl_server\EventSubscriber\RemoveXFrameOptionsSubscriber:
+    tags:
+      - { name: event_subscriber }

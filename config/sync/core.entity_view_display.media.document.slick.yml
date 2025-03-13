@@ -1,0 +1,35 @@
+uuid: 7cb430ba-4357-4c9a-9269-d920abe54b80
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.slick
+    - field.field.media.document.field_media_document
+    - media.type.document
+  module:
+    - file
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: fsmCtf08IYrs9KYJo5RUJK_KvfsDYjzAPjbT4pWpZ7g
+id: media.document.slick
+targetEntityType: media
+bundle: document
+mode: slick
+content:
+  field_media_document:
+    type: file_default
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

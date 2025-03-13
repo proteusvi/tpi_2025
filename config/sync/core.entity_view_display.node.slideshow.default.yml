@@ -1,0 +1,110 @@
+uuid: c746aa1b-4841-44dd-a35e-5f12f9d6453c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.slideshow.body
+    - field.field.node.slideshow.field_image
+    - field.field.node.slideshow.field_images
+    - image.style.large
+    - image.style.large_21_9_2x
+    - image.style.slick_fullscreen
+    - node.type.slideshow
+    - responsive_image.styles.square
+  module:
+    - layout_builder
+    - slick
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.slideshow.default
+targetEntityType: node
+bundle: slideshow
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_images:
+    type: slick_media
+    label: above
+    settings:
+      caption:
+        alt: '0'
+        title: '0'
+      optionset: test
+      class: ''
+      image: ''
+      link: ''
+      overlay: ''
+      title: ''
+      vanilla: false
+      by_delta: -1
+      layout: ''
+      view_mode: slick
+      cache: 60
+      admin_uri: '/admin/structure/types/manage/slideshow/display?destination=/node/21&ajax_form=1&_wrapper_format=drupal_ajax'
+      use_lb: false
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: slick_fullscreen
+      loading: slider
+      preload: true
+      responsive_image_style: square
+      use_theme_field: false
+      box_style: ''
+      image_style: large_21_9_2x
+      media_switch: media
+      ratio: '4:3'
+      thumbnail_style: large
+      grid: '1'
+      grid_medium: '1'
+      grid_small: '1'
+      style: ''
+      svg_inline: false
+      svg_fill: false
+      svg_sanitize: true
+      svg_sanitize_remote: false
+      svg_hide_caption: false
+      svg_attributes: ''
+      skin: boxed-carousel
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      thumbnail: ''
+      optionset_thumbnail: ''
+      skin_thumbnail: vtabs
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
+      skin_arrows: ''
+      skin_dots: ''
+      preserve_keys: false
+      visible_items: 1
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_image: true
+  langcode: true
+  layout_builder__layout: true

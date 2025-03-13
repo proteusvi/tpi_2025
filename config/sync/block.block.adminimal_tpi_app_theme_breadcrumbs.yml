@@ -1,0 +1,27 @@
+uuid: cedb48b2-9e04-4818-80b3-33f10f86f49a
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - adminimal_tpi_app_theme
+_core:
+  default_config_hash: 5prrlTxk8gDlnDH_jhnc0dNihAw8WT-RVZ3nrec_wiE
+id: adminimal_tpi_app_theme_breadcrumbs
+theme: adminimal_tpi_app_theme
+region: header
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    context_mapping: {  }
+    pages: '<front>'

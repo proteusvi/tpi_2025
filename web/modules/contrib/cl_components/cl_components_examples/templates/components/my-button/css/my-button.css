@@ -1,0 +1,19 @@
+button.cl-component--my-button {
+  box-shadow: 1px 1px 2px #000000CC;
+  margin: 0;
+}
+button.cl-component--my-button.button--primary {
+  background-color: #0d77b5;
+  border-color: #09054d;
+}
+button.cl-component--my-button svg {
+  width: 30px;
+  height: 30px;
+  vertical-align: bottom;
+  padding-left: 5px;
+  fill: white;
+}
+button.cl-component--my-button:focus svg,
+button.cl-component--my-button:hover svg {
+  fill: black;
+}

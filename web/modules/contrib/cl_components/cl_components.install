@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Module installation file.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function cl_components_uninstall($is_syncing) {
+  \Drupal::configFactory()->getEditable('cl_components.settings')->delete();
+}

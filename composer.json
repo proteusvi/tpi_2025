@@ -21,12 +21,15 @@
         "drupal/core-project-message": "^10.4",
         "drupal/core-recommended": "^10.4",
         "drupal/entity_comparison": "^4.0",
-        "drupal/seven": "^1.0"
+        "drupal/seven": "^1.0",
+        "drupal/slick": "^3.0",
+        "drupal/slick_extras": "^2.0",
+        "drupal/varbase_heroslider_media": "^10.0"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "allow-plugins": {

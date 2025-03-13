@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * Module implementation file.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function cl_devel_theme($existing, $type, $theme, $path) {
+  return [
+    'cl_label_with_link' => [
+      'variables' => ['label' => NULL, 'href' => NULL],
+    ],
+  ];
+}
