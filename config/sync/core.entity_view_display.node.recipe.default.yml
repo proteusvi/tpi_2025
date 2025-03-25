@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.recipe.layout_builder__layout
     - node.type.recipe
   module:
+    - entity_comparison
     - options
     - text
     - user
@@ -83,7 +84,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_recipe_instruction:
     type: text_default
@@ -97,7 +98,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   field_tags:
     type: entity_reference_label
@@ -105,7 +106,15 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 2
+    weight: 3
+    region: content
+  link_for_entity_comparison_test:
+    type: entity_comparison_link
+    label: above
+    settings:
+      enitity_comparison: ''
+    third_party_settings: {  }
+    weight: 0
     region: content
   links:
     settings: {  }

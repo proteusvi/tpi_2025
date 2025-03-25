@@ -17,7 +17,6 @@ class LazyComparisonListService implements TrustedCallbackInterface {
   use StringTranslationTrait;
 
   const LIST_COMPARISON_RECIPE_ID = 'list_recipe_to_compare';
-  const LIST_COMPARISON_ARTICLE_ID = 'list_article_to_compare';
 
   /**
    * The current user session.
@@ -70,29 +69,19 @@ class LazyComparisonListService implements TrustedCallbackInterface {
 
     /** @var \Drupal\entity_comparison\Entity\EntityComparisonInterface $entity_comparison */
     $entity_comparison = $this->entityComparisonStorage->load(self::LIST_COMPARISON_RECIPE_ID);
-    $mmtsSessionList = $this->getList($entity_comparison, $uid);
-    $entity_comparison = $this->entityComparisonStorage->load(self::LIST_COMPARISON_ARTICLE_ID);
-    $stagesSessionList = $this->getList($entity_comparison, $uid);
+    $recipesSessionList = $this->getList($entity_comparison, $uid);
 
-    $mmtsList = [];
+    $recipesList = [];
     $stagesList = [];
-    if (!empty($mmtsSessionList)) {
-      $mmtsList = $this->buildListToCompareFromNodes($mmtsSessionList[self::LIST_COMPARISON_RECIPE_ID]);
+    if (!empty($recipesSessionList)) {
+      $recipesList = $this->buildListToCompareFromNodes($recipesSessionList[self::LIST_COMPARISON_RECIPE_ID]);
     }
-    if (!empty($stagesSessionList)) {
-      $stagesList = $this->buildListToCompareFromNodes($stagesSessionList[self::LIST_COMPARISON_RECIPE_ID]);
-    }
-
     $build = [
       '#theme' => 'tpi_entity_comparison_list',
       '#title' => $this->t('Comparison lists'),
-      '#list_mmt' => [
+      '#list_recipe' => [
         'title' => $this->t('Recipe selected'),
-        'list' => $mmtsList,
-      ],
-      '#list_stages' => [
-        'title' => $this->t('Article selected'),
-        'list' => $stagesList,
+        'list' => $recipesList,
       ],
       '#attached' => [
         'library' => [
@@ -149,11 +138,11 @@ class LazyComparisonListService implements TrustedCallbackInterface {
 
     /** @var \Drupal\node\NodeInterface $node */
     foreach ($nodes as $node) {
-      $prestataireTitle = "";
-      if ($node->get('field_prestataire')->getValue()[0]['target_id'] !== NULL) {
-        $prestataire = $this->nodeStorage->load($node->get('field_prestataire')->getValue()[0]['target_id']);
-        if ($prestataire !== NULL) {
-          $prestataireTitle = $prestataire->getTitle();
+      $adminTitle = "";
+      if ($node->get(field_name: 'field_administrateur')->getValue()[0]['target_id'] !== NULL) {
+        $admin = $this->nodeStorage->load($node->get('field_administrateur')->getValue()[0]['target_id']);
+        if ($admin !== NULL) {
+          $adminTitle = $admin->getTitle();
         }
       }
 
@@ -162,7 +151,7 @@ class LazyComparisonListService implements TrustedCallbackInterface {
             $node->getTitle(),
             'entity.node.canonical',
             ['node' => $node->id()]),
-        'prestataire' => $prestataireTitle,
+        'administrateur' => $adminTitle,
         'id' => $node->id(),
       ];
     }

@@ -1,20 +1,20 @@
-uuid: 7b63f878-8282-4180-95cd-afa0302fe179
+uuid: 12af81e7-4cdb-4a5e-a47e-e72ff5db8540
 langcode: fr
 status: true
 dependencies:
   config:
-    - field.storage.node.field_images
+    - field.storage.node.field_carrousel
     - media.type.image
     - media.type.remote_video
     - media.type.video
     - node.type.slideshow
-id: node.slideshow.field_images
-field_name: field_images
+id: node.slideshow.field_carrousel
+field_name: field_carrousel
 entity_type: node
 bundle: slideshow
-label: Images
+label: Carrousel
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -29,5 +29,5 @@ settings:
       field: _none
       direction: ASC
     auto_create: false
-    auto_create_bundle: image
+    auto_create_bundle: remote_video
 field_type: entity_reference

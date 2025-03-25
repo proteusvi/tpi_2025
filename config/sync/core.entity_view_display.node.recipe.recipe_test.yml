@@ -1,0 +1,57 @@
+uuid: a754ed57-6ccc-4195-b205-75d36c27b58f
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.recipe_test
+    - field.field.node.recipe.field_cooking_time
+    - field.field.node.recipe.field_difficulty
+    - field.field.node.recipe.field_ingredients
+    - field.field.node.recipe.field_media_image
+    - field.field.node.recipe.field_number_of_servings
+    - field.field.node.recipe.field_preparation_time
+    - field.field.node.recipe.field_recipe_category
+    - field.field.node.recipe.field_recipe_instruction
+    - field.field.node.recipe.field_summary
+    - field.field.node.recipe.field_tags
+    - field.field.node.recipe.layout_builder__layout
+    - node.type.recipe
+  module:
+    - entity_comparison
+    - user
+id: node.recipe.recipe_test
+targetEntityType: node
+bundle: recipe
+mode: recipe_test
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  link_for_entity_comparison_test:
+    type: entity_comparison_link
+    label: above
+    settings:
+      enitity_comparison: ''
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_cooking_time: true
+  field_difficulty: true
+  field_ingredients: true
+  field_media_image: true
+  field_number_of_servings: true
+  field_preparation_time: true
+  field_recipe_category: true
+  field_recipe_instruction: true
+  field_summary: true
+  field_tags: true
+  langcode: true
+  layout_builder__layout: true

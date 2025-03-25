@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.slideshow.body
+    - field.field.node.slideshow.field_carrousel
     - field.field.node.slideshow.field_image
     - field.field.node.slideshow.field_images
     - node.type.slideshow
@@ -32,6 +33,13 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_carrousel:
+    type: media_library_widget
+    weight: 124
+    region: content
+    settings:
+      media_types: {  }
     third_party_settings: {  }
   field_image:
     type: media_library_widget

@@ -1,0 +1,11 @@
+uuid: ea95636e-7d67-4522-a78a-d60553fde2ca
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+id: node.recipe_test
+label: Test
+description: ''
+targetEntityType: node
+cache: true

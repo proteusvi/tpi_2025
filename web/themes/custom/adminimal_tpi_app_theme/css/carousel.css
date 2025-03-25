@@ -1,0 +1,45 @@
+/* boutton qui permet de passer de l'image suivante et précedente */
+
+.slick-prev:before {
+  content: none;
+}
+.slick-next:before
+{
+    content: none;
+}
+
+button.slick-prev.slick-arrow {
+  background-image: url(../images/slideshow-left-shadow.svg);
+  background-repeat: no-repeat;
+
+  position: absolute;
+  height: 80px;
+  border-radius: 0;
+}
+
+button.slick-next.slick-arrow {
+  background-image: url(../images/slideshow-right-shadow.svg);
+  background-repeat: no-repeat;
+
+  position: absolute;
+  height: 80px;
+  border-radius: 0;
+}
+
+/* Modification des images afin quel fasse la bonne taille */
+
+
+div.slick.blazy.blazy--media.slick--field.slick--field-images.slick--field-images--full.slick--optionset--test.slick--media.is-blazy.slick--initialized {
+  position: relative;
+  width: 730px;
+}
+
+div.slick__slide.slide.slick-slide {
+  position: relative;
+  height: 324px;
+}
+
+
+img.media__element {
+  position: relative;
+}

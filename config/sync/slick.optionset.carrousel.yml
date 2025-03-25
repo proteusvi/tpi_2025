@@ -1,11 +1,11 @@
-uuid: 16abf56f-e81e-4a9d-a11e-8b5004cbe32c
+uuid: 36f375de-3d72-4642-8f49-c1658761e5ef
 langcode: fr
 status: true
 dependencies: {  }
-id: test
-name: test
+id: carrousel
+name: carrousel
 weight: 0
-label: TEST
+label: Carrousel
 group: ''
 skin: ''
 breakpoints: 0
@@ -18,7 +18,5 @@ options:
     centerPadding: 0px
     lazyLoad: ondemand
     slidesToShow: 1
-    swipeToSlide: true
     touchMove: false
-    easing: ''
     waitForAnimate: false

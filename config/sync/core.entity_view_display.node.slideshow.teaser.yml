@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.slideshow.body
+    - field.field.node.slideshow.field_carrousel
     - field.field.node.slideshow.field_image
     - field.field.node.slideshow.field_images
     - node.type.slideshow
@@ -30,6 +31,7 @@ content:
     weight: 0
     region: content
 hidden:
+  field_carrousel: true
   field_image: true
   field_images: true
   langcode: true

@@ -6,6 +6,7 @@ dependencies:
     - field.field.media.video.field_media_video_file
     - media.type.video
   module:
+    - blazy
     - file
 _core:
   default_config_hash: kE5GUyGHjdrBBmFjopZs92mC8zV_Ixw80gp_qwdaZBA
@@ -19,13 +20,15 @@ content:
     label: visually_hidden
     settings:
       controls: true
-      autoplay: false
-      loop: false
+      autoplay: true
+      loop: true
       multiple_file_display_type: tags
       muted: false
       width: 640
       height: 480
-    third_party_settings: {  }
+    third_party_settings:
+      blazy:
+        blazy: true
     weight: 0
     region: content
 hidden:

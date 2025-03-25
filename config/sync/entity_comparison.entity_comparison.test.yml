@@ -1,0 +1,14 @@
+uuid: 57406e14-66bc-4d42-bb92-8a804634e637
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.node.recipe.recipe_test
+    - core.entity_view_mode.node.recipe_test
+id: test
+label: Test
+add_link_text: 'Add to comparison list'
+remove_link_text: 'Remove from the comparison'
+limit: 0
+entity_type: node
+bundle_type: recipe

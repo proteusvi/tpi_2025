@@ -4,13 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.slideshow.body
+    - field.field.node.slideshow.field_carrousel
     - field.field.node.slideshow.field_image
     - field.field.node.slideshow.field_images
-    - image.style.large
-    - image.style.large_21_9_2x
     - image.style.slick_fullscreen
     - node.type.slideshow
-    - responsive_image.styles.square
+    - responsive_image.styles.3_2_image
   module:
     - layout_builder
     - slick
@@ -32,9 +31,76 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-  field_images:
+  field_carrousel:
     type: slick_media
     label: above
+    settings:
+      caption:
+        alt: '0'
+        title: '0'
+      optionset: carrousel
+      class: ''
+      image: ''
+      link: ''
+      overlay: ''
+      title: ''
+      vanilla: false
+      by_delta: -1
+      layout: ''
+      view_mode: default
+      cache: 0
+      admin_uri: '/admin/structure/types/manage/slideshow/display?ajax_form=1&_wrapper_format=drupal_ajax&_wrapper_format=drupal_ajax'
+      use_lb: false
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
+      preload: false
+      responsive_image_style: ''
+      use_theme_field: false
+      box_style: ''
+      image_style: ''
+      media_switch: media
+      ratio: '16:9'
+      thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
+      svg_inline: false
+      svg_fill: false
+      svg_sanitize: true
+      svg_sanitize_remote: false
+      svg_hide_caption: false
+      svg_attributes: ''
+      skin: classic
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      thumbnail: ''
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
+      skin_arrows: ''
+      skin_dots: ''
+      preserve_keys: false
+      visible_items: null
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_images:
+    type: slick_media
+    label: hidden
     settings:
       caption:
         alt: '0'
@@ -48,7 +114,7 @@ content:
       vanilla: false
       by_delta: -1
       layout: ''
-      view_mode: slick
+      view_mode: full
       cache: 60
       admin_uri: '/admin/structure/types/manage/slideshow/display?destination=/node/21&ajax_form=1&_wrapper_format=drupal_ajax'
       use_lb: false
@@ -57,17 +123,17 @@ content:
       box_caption_custom: ''
       box_media_style: slick_fullscreen
       loading: slider
-      preload: true
-      responsive_image_style: square
+      preload: false
+      responsive_image_style: 3_2_image
       use_theme_field: false
       box_style: ''
-      image_style: large_21_9_2x
+      image_style: ''
       media_switch: media
-      ratio: '4:3'
-      thumbnail_style: large
-      grid: '1'
-      grid_medium: '1'
-      grid_small: '1'
+      ratio: '16:9'
+      thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
       style: ''
       svg_inline: false
       svg_fill: false
@@ -75,7 +141,7 @@ content:
       svg_sanitize_remote: false
       svg_hide_caption: false
       svg_attributes: ''
-      skin: boxed-carousel
+      skin: classic
       overridables:
         arrows: '0'
         autoplay: '0'
@@ -87,7 +153,7 @@ content:
         variableWidth: '0'
       thumbnail: ''
       optionset_thumbnail: ''
-      skin_thumbnail: vtabs
+      skin_thumbnail: ''
       thumbnail_caption: ''
       thumbnail_effect: ''
       thumbnail_position: ''
@@ -95,7 +161,7 @@ content:
       skin_arrows: ''
       skin_dots: ''
       preserve_keys: false
-      visible_items: 1
+      visible_items: null
     third_party_settings: {  }
     weight: 2
     region: content
